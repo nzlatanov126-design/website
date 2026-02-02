@@ -1,0 +1,135 @@
+You are working in a Vite + React + TypeScript project using Wouter for routing (Link is imported from "wouter" in Navbar). The site is for a renovation company. Create new pages for all dropdown items in the Navbar and apply the UX/design fixes listed below. Do not break the build.
+
+Rules
+
+Frontend only. Do not modify server code.
+
+Use TailwindCSS only.
+
+Keep components clean and reusable.
+
+Keep existing design style consistent (premium, neutral, renovation company vibe).
+
+Use semantic HTML and good SEO (title headings, meta-like structure in the page content).
+
+All pages must be responsive.
+
+Keep framer-motion where it already exists; no heavy animations.
+
+1) Routing: create real pages for dropdown items
+Create these routes/pages:
+Services pages (create folder client/src/pages/services/)
+
+/services/painting → Painting.tsx
+
+/services/plaster-putty → PlasterPutty.tsx
+
+/services/tiles → Tiles.tsx
+
+/services/electrical → Electrical.tsx
+
+/services/plumbing → Plumbing.tsx
+
+/services/drywall → Drywall.tsx
+
+/services/flooring → Flooring.tsx
+
+Renovation category pages (create folder client/src/pages/projects/)
+
+/projects/bathroom-renovation → BathroomRenovation.tsx
+
+/projects/kitchen-renovation → KitchenRenovation.tsx
+
+/projects/bedroom-renovation → BedroomRenovation.tsx
+
+/projects/office-renovation → OfficeRenovation.tsx
+
+Each new page must include:
+
+Navbar at top and Footer at bottom (reuse existing components).
+
+A hero section with title + short subtext + CTA button linking to /#quote or / with #quote behavior (see routing notes).
+
+“What’s included” bullet list
+
+“Process” section (3–5 steps)
+
+“Pricing guidance” section (simple, non-binding, explains that final quote requires site visit)
+
+FAQ (3–5 items relevant to that service)
+
+Final CTA section to request a quote (button links to quote form on Home page)
+
+2) Update App routing (Wouter)
+
+Edit client/src/App.tsx (or wherever routes are defined) to add routes for all new pages listed above.
+
+Ensure:
+
+/ renders the existing Home page.
+
+New routes render new pages.
+
+Unknown routes show a simple NotFound page (optional).
+
+3) Navbar fixes + improvements
+
+Edit client/src/components/Navbar.tsx:
+
+(a) Link dropdown items to the new pages
+
+Replace dropdown hrefs so they navigate to the new routes above, e.g.
+
+Painting → /services/painting
+
+Bathroom Renovation → /projects/bathroom-renovation
+
+(b) Mobile dropdowns must be collapsible
+
+Currently mobile dropdowns are always expanded. Add state so:
+
+Tapping “Services” expands/collapses its items
+
+Tapping “Apartments & Houses” expands/collapses its items
+
+Other links close the mobile menu immediately
+Keep it simple and reliable.
+
+(c) Rounded corners polish
+
+Replace sharp corners:
+
+dropdown menu container: rounded-sm → rounded-2xl
+
+CTA button: rounded-sm → rounded-full (or rounded-xl)
+
+mobile panel cards: make consistent rounded-xl/2xl
+Keep the rest of the look the same.
+
+(d) Make top info bar email + phone clickable
+
+Email: mailto link
+
+Phone: tel link
+
+4) Home page anchor corrections
+
+Edit the Home page file that contains your landing page sections (it currently exports export default function Home() and includes <Navbar /> and <Footer />).
+
+Required changes:
+
+Change FAQ “Ask a Question” button link to go to #quote (it currently points to #contact).
+
+Move id="testimonials" to the testimonials SECTION element so scrolling lands correctly.
+
+Optional polish: replace excessive rounded-sm on big cards with rounded-2xl.
+
+Do NOT change the overall section order or remove content.
+
+5) Make “Request a Quote” work from other pages
+
+Because quote form is on Home page (route /), ensure quote CTAs on service pages navigate correctly.
+
+Implementation guidance:
+
+The CTA button should link to "/#quote" (not just #quote) to ensure it works even from other routes.

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [housesOpen, setHousesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,20 @@ export function Navbar() {
   }, []);
 
   const services = [
-    "Painting", "Plaster & Putty", "Tiles", "Electrical", "Plumbing", "Drywall", "Flooring"
+    { name: "Painting", href: "/services/painting" },
+    { name: "Plaster & Putty", href: "/services/plaster-putty" },
+    { name: "Tiles", href: "/services/tiles" },
+    { name: "Electrical", href: "/services/electrical" },
+    { name: "Plumbing", href: "/services/plumbing" },
+    { name: "Drywall", href: "/services/drywall" },
+    { name: "Flooring", href: "/services/flooring" }
   ];
 
   const categories = [
-    "Bathroom Renovation", "Kitchen Renovation", "Bedroom Renovation", "Office Renovation"
+    { name: "Bathroom Renovation", href: "/projects/bathroom-renovation" },
+    { name: "Kitchen Renovation", href: "/projects/kitchen-renovation" },
+    { name: "Bedroom Renovation", href: "/projects/bedroom-renovation" },
+    { name: "Office Renovation", href: "/projects/office-renovation" }
   ];
 
   const navLinks = [
@@ -30,13 +41,17 @@ export function Navbar() {
       name: "Services", 
       href: "/#services", 
       hasDropdown: true,
-      items: services.map(s => ({ name: s, href: `/#services-${s.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}` }))
+      isOpen: servicesOpen,
+      toggle: () => { setServicesOpen(!servicesOpen); setHousesOpen(false); },
+      items: services
     },
     { 
       name: "Apartments & Houses", 
       href: "/#projects", 
       hasDropdown: true,
-      items: categories.map(c => ({ name: c, href: `/#projects-${c.toLowerCase().replace(/ /g, '-')}` }))
+      isOpen: housesOpen,
+      toggle: () => { setHousesOpen(!housesOpen); setServicesOpen(false); },
+      items: categories
     },
     { name: "Testimonials", href: "/#testimonials" },
     { name: "About", href: "/#about" },
@@ -53,16 +68,16 @@ export function Navbar() {
             <span className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-primary" /> Sofia, Bulgaria
             </span>
-            <span className="flex items-center gap-2">
+            <a href="mailto:info@gdsc.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Mail className="w-3.5 h-3.5 text-primary" /> info@gdsc.bg
-            </span>
+            </a>
             <span className="flex items-center gap-2">
               <Clock className="w-3.5 h-3.5 text-primary" /> Mon–Fri 09:30–18:30
             </span>
           </div>
-          <div className="flex items-center gap-2 font-bold text-primary">
+          <a href="tel:+359881234567" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
             <Phone className="w-3.5 h-3.5" /> +359 88 123 4567
-          </div>
+          </a>
         </div>
       </div>
 
@@ -76,7 +91,7 @@ export function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link href="/" className="group">
+            <Link href="/" className="group" onClick={() => setIsOpen(false)}>
               <div className="flex flex-col leading-none cursor-pointer">
                 <span className="text-3xl font-black font-display tracking-tighter text-foreground group-hover:text-primary transition-colors">
                   GDSC
@@ -91,25 +106,25 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group/item py-2">
-                  <a 
+                  <Link 
                     href={link.href} 
                     className="flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
                     {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />}
-                  </a>
+                  </Link>
                   
                   {link.hasDropdown && (
                     <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
-                      <div className="bg-white border border-border shadow-xl rounded-sm py-3 overflow-hidden">
+                      <div className="bg-white border border-border shadow-xl rounded-2xl py-3 overflow-hidden">
                         {link.items?.map((item) => (
-                          <a 
+                          <Link 
                             key={item.name}
                             href={item.href}
                             className="block px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -122,8 +137,8 @@ export function Navbar() {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-sm shadow-lg shadow-primary/20">
-                <a href="#quote">Request a Quote</a>
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full shadow-lg shadow-primary/20">
+                <a href="/#quote">Request a Quote</a>
               </Button>
             </div>
 
@@ -148,32 +163,42 @@ export function Navbar() {
             {navLinks.map((link) => (
               <div key={link.name} className="flex flex-col">
                 <div className="flex items-center justify-between py-3 border-b border-border">
-                  <a 
+                  <Link 
                     href={link.href}
                     className="text-lg font-bold text-foreground hover:text-primary transition-colors"
-                    onClick={() => !link.hasDropdown && setIsOpen(false)}
+                    onClick={(e) => {
+                      if (link.hasDropdown) {
+                        e.preventDefault();
+                        link.toggle();
+                      } else {
+                        setIsOpen(false);
+                      }
+                    }}
                   >
-                    {link.name}
-                  </a>
+                    <span className="flex items-center gap-2">
+                      {link.name}
+                      {link.hasDropdown && <ChevronDown className={cn("w-4 h-4 transition-transform", link.isOpen && "rotate-180")} />}
+                    </span>
+                  </Link>
                 </div>
                 {link.hasDropdown && (
-                  <div className="pl-4 flex flex-col gap-2 py-2 bg-secondary/30">
+                  <div className={cn("pl-4 flex flex-col gap-2 py-2 bg-secondary/30 rounded-xl transition-all overflow-hidden", link.isOpen ? "max-h-96" : "max-h-0 py-0")}>
                     {link.items?.map((item) => (
-                      <a 
+                      <Link 
                         key={item.name}
                         href={item.href}
                         className="text-sm font-semibold text-muted-foreground py-1 hover:text-primary transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
-            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-sm" onClick={() => setIsOpen(false)}>
-              <a href="#quote">Request a Quote</a>
+            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-xl" onClick={() => setIsOpen(false)}>
+              <a href="/#quote">Request a Quote</a>
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">
