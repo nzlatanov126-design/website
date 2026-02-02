@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from "
 
 export function Footer() {
   return (
-    <footer className="bg-accent text-accent-foreground pt-16 pb-8">
+    <footer id="footer" className="bg-accent text-accent-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -63,7 +63,6 @@ export function Footer() {
                 { name: 'За нас', href: '/about' },
                 { name: 'Отзиви', href: '/testimonials' },
                 { name: 'Блог', href: '/blog' },
-                { name: 'Контакт', href: '/contact' },
                 { name: 'Поискай оферта', href: '/quote' }
               ].map((item) => (
                 <li key={item.name}>
