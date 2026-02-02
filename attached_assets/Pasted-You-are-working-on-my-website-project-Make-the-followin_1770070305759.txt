@@ -1,0 +1,56 @@
+You are working on my website project. Make the following changes:
+
+GOAL 1 — Navbar links must each have a real page
+1) Review the Navbar component and list every nav button/link currently shown.
+2) For EVERY navbar item, ensure it navigates to its own route (page) and that the route exists.
+3) Create missing pages/routes for all navbar buttons so that no navbar link is a dead link.
+4) Each page must contain full, real content (not just a title). Add a complete page layout with:
+   - Hero section (headline + short subtext + primary CTA button)
+   - 2–4 relevant content sections (cards/columns, features, steps, etc.)
+   - A call-to-action section near the bottom
+   - Footer remains consistent
+
+Use the existing site styling/components. Keep design consistent and modern (minimal, premium).
+
+GOAL 2 — “Get a Quote” must go to a Quote page with a service dropdown form
+1) Create a dedicated page/route called /quote (or /get-a-quote if you prefer, but update navbar accordingly).
+2) The Quote page should look like a contact/lead page:
+   - Left column: headline “Започнете проекта си днес”, short paragraph, contact info blocks (Phone, Office, Working hours).
+   - Right column: a form titled “Получете безплатна оферта”.
+3) The form must include these fields:
+   - Full Name (required)
+   - Email (required, validate email)
+   - Object Location (required)
+   - Service (REQUIRED dropdown/select)
+   - Project Details (textarea, required)
+   - Submit button
+4) The service dropdown options must be:
+   - Цялостен ремонт (Turnkey renovation)
+   - Ремонт на баня
+   - Боядисване и шпакловка
+   - Подови настилки / плочки
+   - Гипсокартон / окачени тавани
+   - Довършителни работи
+   - Търговски обекти
+   - Друго
+5) On submit, show a success message on the page (no external email service required). If you already have backend handling, keep it.
+
+TECH NOTES
+- The project uses (detect automatically) the current routing setup and implement pages accordingly:
+  - If using Wouter: add <Route> entries.
+  - If using React Router: add routes in the router config.
+- Ensure navbar links use the correct Link component (wouter or react-router) consistently.
+- Ensure active route navigation works and no console errors are introduced.
+- Keep all text content in Bulgarian.
+- Do not remove existing components; refactor safely.
+
+DELIVERABLES / ACCEPTANCE CRITERIA
+- Clicking every navbar item opens a real page with full content.
+- “Get a Quote” opens /quote with the form and service dropdown.
+- Form validates required fields and shows a success state after submit.
+- Site builds without errors.
+
+After making changes, output:
+1) A short summary of what you changed
+2) The list of created/edited files
+3) How to test each route quickly
