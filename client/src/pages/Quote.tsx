@@ -101,7 +101,7 @@ export default function Quote() {
                     <div>
                       <h4 className="font-bold text-foreground text-lg">Телефон</h4>
                       <p className="text-muted-foreground mb-1">Пон-Пет от 9:00 до 18:00</p>
-                      <a href="tel:+359881234567" className="text-xl font-bold hover:text-primary transition-colors">+359 88 123 4567</a>
+                      <a href="tel:+359897744774" className="text-xl font-bold hover:text-primary transition-colors">+359 89 7744774</a>
                     </div>
                   </div>
 

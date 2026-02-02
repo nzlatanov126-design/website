@@ -75,8 +75,8 @@ export function Navbar() {
               <Clock className="w-3.5 h-3.5 text-primary" /> Пон–Пет 09:00–18:00
             </span>
           </div>
-          <a href="tel:+359881234567" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
-            <Phone className="w-3.5 h-3.5" /> +359 88 123 4567
+          <a href="tel:+359897744774" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
+            <Phone className="w-3.5 h-3.5" /> +359 89 7744774
           </a>
         </div>
       </div>
@@ -202,8 +202,8 @@ export function Navbar() {
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">
-              <a href="tel:+359881234567" className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4 text-primary" /> +359 88 123 4567
+              <a href="tel:+359897744774" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Phone className="w-4 h-4 text-primary" /> +359 89 7744774
               </a>
               <a href="mailto:info@gdcs.bg" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4 text-primary" /> info@gdcs.bg

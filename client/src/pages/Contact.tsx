@@ -35,7 +35,7 @@ export default function Contact() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: Phone, title: "Телефон", info: "+359 88 123 4567", subinfo: "Пон-Пет 9:00-18:00", action: "tel:+359881234567" },
+                { icon: Phone, title: "Телефон", info: "+359 89 7744774", subinfo: "Пон-Пет 9:00-18:00", action: "tel:+359897744774" },
                 { icon: Mail, title: "Имейл", info: "info@gdsc.bg", subinfo: "Отговаряме до 24 часа", action: "mailto:info@gdsc.bg" },
                 { icon: MapPin, title: "Офис", info: "Бизнес Парк София", subinfo: "Сграда 12, София 1766", action: "#map" },
                 { icon: Clock, title: "Работно време", info: "Пон-Пет 9:00-18:00", subinfo: "Събота по заявка", action: null }
@@ -102,8 +102,8 @@ export default function Contact() {
                 <div className="p-6 bg-accent rounded-2xl text-white">
                   <h4 className="font-bold mb-2">Предпочитате да се обадите?</h4>
                   <p className="text-gray-400 text-sm mb-4">Нашият екип е на линия от понеделник до петък.</p>
-                  <a href="tel:+359881234567" className="text-2xl font-black font-display text-primary hover:text-primary/80 transition-colors">
-                    +359 88 123 4567
+                  <a href="tel:+359897744774" className="text-2xl font-black font-display text-primary hover:text-primary/80 transition-colors">
+                    +359 89 7744774
                   </a>
                 </div>
               </div>
