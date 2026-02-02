@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pb-16 md:pb-24">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           {/* modern apartment interior living room renovation */}
