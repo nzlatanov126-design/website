@@ -77,3 +77,19 @@ Preferred communication style: Simple, everyday language.
 - Manrope (display/headings)
 - Outfit (body text)
 - Loaded via Google Fonts
+
+### Email Configuration
+- **Provider**: Gmail SMTP (info@gdcs.bg)
+- **Package**: nodemailer
+- **Secret**: `GMAIL_APP_PASSWORD` - Gmail App Password for SMTP authentication
+- **Endpoint**: `POST /api/quote` - sends quote requests to info@gdcs.bg
+- **Note**: If Gmail App Password expires, regenerate at myaccount.google.com > Security > App passwords
+
+### Brand Colors (from logo)
+- **Navy Blue**: #2B4257 (headers, footer, text)
+- **Orange**: #F68B1F (CTA buttons, accents, highlights)
+
+### Contact Information
+- **Phone**: +359 89 7744774
+- **Email**: info@gdcs.bg
+- **Location**: Sofia, Bulgaria

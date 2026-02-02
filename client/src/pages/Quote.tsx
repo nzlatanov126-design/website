@@ -51,12 +51,24 @@ export default function Quote() {
   async function onSubmit(data: QuoteFormData) {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Quote form submitted:", data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to send quote request");
+      }
+      
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Quote form error:", error);
+      alert("Грешка при изпращане. Моля, опитайте отново или се обадете на +359 89 7744774");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
