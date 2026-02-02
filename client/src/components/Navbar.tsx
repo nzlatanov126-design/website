@@ -18,9 +18,9 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/#services", hasDropdown: true },
-    { name: "Projects", href: "/#projects" },
-    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    { name: "Product", href: "/#products" },
+    { name: "About Us", href: "/#about" },
     { name: "Contact", href: "/#contact" },
   ];
 
