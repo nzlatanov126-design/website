@@ -1,0 +1,200 @@
+Create a modern, professional website for a house renovation and finishing works company in Bulgaria.
+
+General requirements
+
+Tech stack: React + Tailwind CSS
+
+Clean, premium, construction-style design
+
+Colors: white, light gray, dark gray/black accents (similar to bestmaster.bg)
+
+Layout inspired by bestmaster.bg (NOT copied, only similar structure)
+
+Fully responsive (desktop, tablet, mobile)
+
+SEO-friendly structure and clean component separation
+
+Header component
+
+Create a sticky header with:
+
+Top info bar:
+
+Location: “Sofia, Bulgaria”
+
+Email: “info@gdsc.bg
+”
+
+Working hours: “Mon–Fri 09:30–18:30”
+
+Main navigation:
+
+Logo text: GDSC
+
+Menu items:
+
+Services (dropdown)
+
+Apartments & Houses (dropdown)
+
+Testimonials
+
+About
+
+Blog
+
+Contact
+
+Primary CTA button: “Request a Quote”
+
+Mobile hamburger menu with expandable dropdowns
+
+Hero Section
+
+Large hero section with dark overlay
+
+Headline:
+“Professional Home Renovations With Real Deadlines”
+
+Subheadline:
+“Turnkey apartment renovations, bathrooms, kitchens, drywall, tiles, painting, electrical and plumbing services.”
+
+Two buttons:
+
+Primary: Request a Quote
+
+Secondary: Our Services
+
+Trust badges:
+
+Written Warranty
+
+Clean Work
+
+Fixed Deadlines
+
+Professional Team
+
+Why Choose Us Section
+
+Two-column layout:
+
+Left:
+
+Bullet points:
+
+High quality finishing
+
+Clear pricing
+
+Clean execution
+
+Strong communication
+
+Right:
+
+3 feature cards:
+
+Quality – Warranty & control
+
+Price – Transparent offers
+
+Deadlines – Planned execution
+
+Services Section
+
+Grid layout with cards for:
+
+Apartment Renovations
+
+Bathroom Renovation
+
+Kitchen Renovation
+
+Painting
+
+Tiles
+
+Drywall
+
+Electrical
+
+Plumbing
+
+Each card should have:
+
+Title
+
+Short description
+
+Hover effect
+
+Testimonials Section
+
+3 testimonial cards with:
+
+Project type
+
+Short review text
+
+Client location: Sofia
+
+FAQ Section
+
+Accordion-style FAQ with:
+
+What services do you offer?
+
+How do I get an estimate?
+
+Do you provide warranty?
+
+Can changes be made during renovation?
+
+Quote / Contact Section
+
+Split layout:
+
+Left: explanation text
+
+Right: contact form with:
+
+Name
+
+Phone or Email
+
+Location
+
+Message
+
+Submit button
+
+Footer component
+
+Footer with 4 columns:
+
+Company description + social icons
+
+Services links
+
+Company links
+
+Contact info + latest posts
+
+Bottom bar:
+
+© 2026 GDSC – All rights reserved
+
+Privacy Policy / Terms
+
+Extra
+
+Use reusable components
+
+Use semantic HTML
+
+Add smooth hover transitions
+
+Do NOT include backend logic
+
+Keep everything frontend-only
