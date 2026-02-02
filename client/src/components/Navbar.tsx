@@ -68,11 +68,11 @@ export function Navbar() {
             <span className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-primary" /> София, България
             </span>
-            <a href="mailto:info@gdsc.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-3.5 h-3.5 text-primary" /> info@gdsc.bg
+            <a href="mailto:info@gdcs.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <Mail className="w-3.5 h-3.5 text-primary" /> info@gdcs.bg
             </a>
             <span className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-primary" /> Пон–Пет 09:30–18:30
+              <Clock className="w-3.5 h-3.5 text-primary" /> Пон–Пет 09:00–18:00
             </span>
           </div>
           <a href="tel:+359881234567" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
@@ -85,30 +85,27 @@ export function Navbar() {
       <nav 
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-300 border-b",
-          scrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2 border-border" : "bg-white py-4 border-transparent"
+          scrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2 border-border" : "bg-white py-3 border-transparent"
         )}
       >
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-8">
             {/* Logo */}
-            <Link href="/" className="group" onClick={() => setIsOpen(false)}>
-              <div className="flex flex-col leading-none cursor-pointer">
-                <span className="text-3xl font-black font-display tracking-tighter text-foreground group-hover:text-primary transition-colors">
-                  GDSC
-                </span>
-                <span className="text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground transition-colors font-semibold">
-                  Ремонти
-                </span>
-              </div>
+            <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)} data-testid="link-logo">
+              <img 
+                src="/logo-gdcs.png" 
+                alt="GDCS Construction & Finishing" 
+                className="h-9 md:h-10 w-auto object-contain"
+              />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative group/item py-2">
+                <div key={link.name} className="relative group/item">
                   <Link 
                     href={link.href} 
-                    className="flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
                     data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {link.name}
@@ -116,13 +113,13 @@ export function Navbar() {
                   </Link>
                   
                   {link.hasDropdown && (
-                    <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
-                      <div className="bg-white border border-border shadow-xl rounded-2xl py-3 overflow-hidden">
+                    <div className="absolute top-full left-0 w-56 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
+                      <div className="bg-white border border-border shadow-xl rounded-lg py-2 overflow-hidden">
                         {link.items?.map((item) => (
                           <Link 
                             key={item.name}
                             href={item.href}
-                            className="block px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                            className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
                             data-testid={`nav-dropdown-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                           >
                             {item.name}
@@ -132,21 +129,21 @@ export function Navbar() {
                     </div>
                   )}
 
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/item:w-full" />
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary scale-x-0 group-hover/item:scale-x-100 transition-transform origin-left" />
                 </div>
               ))}
             </div>
 
             {/* CTA Button */}
-            <div className="hidden lg:block">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full shadow-lg shadow-primary/20">
+            <div className="hidden lg:block shrink-0">
+              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-md shadow-lg shadow-primary/20 px-6">
                 <Link href="/quote" data-testid="nav-cta-quote">Поискай оферта</Link>
               </Button>
             </div>
 
             {/* Mobile Menu Toggle */}
             <button 
-              className="lg:hidden p-2 text-foreground"
+              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               data-testid="button-mobile-menu"
             >
@@ -158,17 +155,17 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div 
           className={cn(
-            "lg:hidden fixed inset-x-0 top-[60px] bg-background border-b shadow-xl transition-all duration-300 overflow-y-auto max-h-[calc(100vh-60px)]",
-            isOpen ? "opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+            "lg:hidden fixed inset-x-0 top-[72px] bg-background border-b border-border shadow-xl transition-all duration-300 overflow-y-auto",
+            isOpen ? "max-h-[calc(100vh-72px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           )}
         >
-          <div className="container px-4 py-6 flex flex-col gap-2">
+          <div className="container px-4 py-6 flex flex-col gap-1">
             {navLinks.map((link) => (
               <div key={link.name} className="flex flex-col">
-                <div className="flex items-center justify-between py-3 border-b border-border">
+                <div className="flex items-center justify-between py-3 border-b border-border/50">
                   <Link 
                     href={link.href}
-                    className="text-lg font-bold text-foreground hover:text-primary transition-colors"
+                    className="text-base font-bold text-foreground hover:text-primary transition-colors"
                     onClick={(e) => {
                       if (link.hasDropdown) {
                         e.preventDefault();
@@ -185,12 +182,12 @@ export function Navbar() {
                   </Link>
                 </div>
                 {link.hasDropdown && (
-                  <div className={cn("pl-4 flex flex-col gap-2 py-2 bg-secondary/30 rounded-xl transition-all overflow-hidden", link.isOpen ? "max-h-96" : "max-h-0 py-0")}>
+                  <div className={cn("pl-4 flex flex-col gap-1 py-2 bg-secondary/50 rounded-md my-1 transition-all overflow-hidden", link.isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 py-0 my-0")}>
                     {link.items?.map((item) => (
                       <Link 
                         key={item.name}
                         href={item.href}
-                        className="text-sm font-semibold text-muted-foreground py-1 hover:text-primary transition-colors"
+                        className="text-sm font-medium text-muted-foreground py-2 px-2 hover:text-primary hover:bg-white/50 rounded transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.name}
@@ -200,17 +197,17 @@ export function Navbar() {
                 )}
               </div>
             ))}
-            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-xl" onClick={() => setIsOpen(false)}>
+            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-md h-12" onClick={() => setIsOpen(false)}>
               <Link href="/quote">Поискай оферта</Link>
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-3">
+              <a href="tel:+359881234567" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4 text-primary" /> +359 88 123 4567
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary" /> info@gdsc.bg
-              </div>
+              </a>
+              <a href="mailto:info@gdcs.bg" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Mail className="w-4 h-4 text-primary" /> info@gdcs.bg
+              </a>
             </div>
           </div>
         </div>
