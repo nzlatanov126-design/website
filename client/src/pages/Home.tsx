@@ -44,10 +44,10 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8 text-base shadow-lg shadow-primary/25">
-                <a href="#contact">Request a Quote</a>
+              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8 text-base shadow-lg shadow-primary/25">
+                <a href="#quote">Request a Quote</a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-8 text-base font-semibold backdrop-blur-sm">
+              <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-8 text-base font-semibold backdrop-blur-sm">
                 <a href="#services">Our Services</a>
               </Button>
             </div>

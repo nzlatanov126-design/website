@@ -1,0 +1,220 @@
+1) Update Header / Navbar
+File to edit:
+
+client/src/components/Navbar.tsx (or if it doesn’t exist, create it and wire it in)
+
+Required changes:
+
+Make the header sticky at the top.
+
+Add a top info bar (desktop only) containing:
+
+“Sofia, Bulgaria”
+
+“info@gdsc.bg
+”
+
+“Mon–Fri 09:30–18:30”
+
+Phone “+359 88 123 4567”
+
+Main header row:
+
+Left: brand “GDSC” (logo text or simple mark)
+
+Center: nav links
+
+Right: CTA button “Request a Quote” that scrolls to #quote
+
+Nav links (with dropdowns on desktop):
+
+Services (dropdown):
+
+Painting, Plaster & Putty, Tiles, Electrical, Plumbing, Drywall, Flooring
+
+Apartments & Houses (dropdown):
+
+Bathroom Renovation, Kitchen Renovation, Bedroom Renovation, Office Renovation
+
+Testimonials (anchor #testimonials)
+
+About (#about)
+
+Blog (#blog)
+
+Contact (#quote)
+
+Mobile:
+
+Hamburger menu
+
+Dropdown items expand/collapse cleanly
+
+CTA button inside mobile panel
+
+UX details:
+
+Use subtle borders, rounded corners, and hover states.
+
+Keep spacing “premium”: not too tight, not too big.
+
+2) Update Home Page Layout
+File to edit:
+
+client/src/pages/Home.tsx (or the file that renders the homepage)
+
+Required sections (in this order):
+
+Hero (dark background with overlay feel)
+
+H1: “Professional Home Renovations With Real Deadlines”
+
+Subhead: “Turnkey apartment renovations, bathrooms, kitchens, drywall, tiles, painting, electrical and plumbing services.”
+
+Buttons:
+
+Primary: “Request a Quote” → #quote
+
+Secondary: “Our Services” → #services
+
+Trust badges row (4 items):
+
+Written Warranty
+
+Clean Work
+
+Fixed Deadlines
+
+Professional Team
+
+Why Choose Us (#about)
+
+Two-column layout:
+
+Left bullet list:
+
+High quality finishing
+
+Clear pricing
+
+Clean execution
+
+Strong communication
+
+Right 3 feature cards:
+
+QUALITY — warranty & control
+
+PRICE — transparent offers
+
+DEADLINES — planned execution
+
+Services grid (#services)
+
+Card grid for:
+
+Apartment Renovations
+
+Bathroom Renovation
+
+Kitchen Renovation
+
+Painting
+
+Tiles
+
+Drywall
+
+Electrical
+
+Plumbing
+
+Each card: title + short description + “Learn more →” hover micro interaction
+
+Testimonials (#testimonials)
+
+3 simple testimonial cards with project type, short review, “Client in Sofia”
+
+FAQ (#faq)
+
+Accordion style with:
+
+What services do you offer?
+
+How do I get an estimate?
+
+Do you provide a written warranty?
+
+Can you handle changes during the project?
+
+Quote / Contact (#quote)
+
+Two-column layout:
+
+Left: explanation + what info to include
+
+Right: form (Name, Phone/Email, Location, Message, Submit)
+
+Form can be frontend-only (alert on submit)
+
+Blog preview (#blog) (optional but recommended)
+
+3 cards with title + short snippet
+
+3) Update Footer
+File to edit:
+
+client/src/components/Footer.tsx (or create it and wire it in)
+
+Required footer layout (4 columns):
+
+Company mini about + social icons (placeholders ok)
+
+Services links (anchors to #services)
+
+Company links (About, Testimonials, FAQ, Blog, Contact)
+
+Contact details + “Latest posts” list (placeholder ok)
+
+Bottom bar:
+
+“© 2026 GDSC. All rights reserved.”
+
+Links: Privacy, Terms
+
+4) Styling / Globals
+File to edit:
+
+client/src/index.css (or wherever global styles are)
+
+Ensure typography looks premium:
+
+Use neutral palette
+
+Good line-height
+
+Consistent container width (max-w-6xl or similar)
+
+Do NOT introduce heavy animations. Use subtle transitions.
+
+5) Wiring
+
+Ensure Navbar is imported and used in the main layout (likely client/src/App.tsx).
+
+Ensure Footer is visible on the homepage.
+
+All anchor links should scroll to correct sections.
+
+Acceptance checklist (must pass)
+
+Project builds without errors.
+
+Navbar is sticky, has dropdowns on desktop, hamburger on mobile.
+
+Homepage contains all required sections and anchors work.
+
+Design looks clean/premium, similar layout feel to a renovation company site.
+
+After changes:
+
+Output a short summary: which files you edited and what you changed.

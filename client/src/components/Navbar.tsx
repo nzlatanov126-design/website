@@ -16,18 +16,38 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const services = [
+    "Painting", "Plaster & Putty", "Tiles", "Electrical", "Plumbing", "Drywall", "Flooring"
+  ];
+
+  const categories = [
+    "Bathroom Renovation", "Kitchen Renovation", "Bedroom Renovation", "Office Renovation"
+  ];
+
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Services", href: "/#services" },
-    { name: "Product", href: "/#products" },
-    { name: "About Us", href: "/#about" },
-    { name: "Contact", href: "/#contact" },
+    { 
+      name: "Services", 
+      href: "/#services", 
+      hasDropdown: true,
+      items: services.map(s => ({ name: s, href: `/#services-${s.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}` }))
+    },
+    { 
+      name: "Apartments & Houses", 
+      href: "/#projects", 
+      hasDropdown: true,
+      items: categories.map(c => ({ name: c, href: `/#projects-${c.toLowerCase().replace(/ /g, '-')}` }))
+    },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "About", href: "/#about" },
+    { name: "Blog", href: "/#blog" },
+    { name: "Contact", href: "/#quote" },
   ];
 
   return (
     <>
       {/* Top Info Bar */}
-      <div className="hidden md:block bg-accent text-accent-foreground py-2 text-xs font-medium tracking-wide">
+      <div className="hidden md:block bg-accent text-accent-foreground py-2 text-xs font-medium tracking-wide border-b border-white/10">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-2">
@@ -49,7 +69,7 @@ export function Navbar() {
       {/* Main Navbar */}
       <nav 
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300 border-b border-white/10",
+          "sticky top-0 z-50 w-full transition-all duration-300 border-b",
           scrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2 border-border" : "bg-white py-4 border-transparent"
         )}
       >
@@ -68,17 +88,33 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative group/item">
+                <div key={link.name} className="relative group/item py-2">
                   <a 
                     href={link.href} 
-                    className="flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors py-2"
+                    className="flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
                   >
                     {link.name}
                     {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />}
                   </a>
-                  {/* Subtle underline effect */}
+                  
+                  {link.hasDropdown && (
+                    <div className="absolute top-full left-0 w-64 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
+                      <div className="bg-white border border-border shadow-xl rounded-sm py-3 overflow-hidden">
+                        {link.items?.map((item) => (
+                          <a 
+                            key={item.name}
+                            href={item.href}
+                            className="block px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                          >
+                            {item.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/item:w-full" />
                 </div>
               ))}
@@ -87,7 +123,7 @@ export function Navbar() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-sm shadow-lg shadow-primary/20">
-                <a href="#contact">Request a Quote</a>
+                <a href="#quote">Request a Quote</a>
               </Button>
             </div>
 
@@ -104,23 +140,40 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div 
           className={cn(
-            "lg:hidden fixed inset-x-0 top-[60px] bg-background border-b shadow-xl transition-all duration-300 overflow-hidden",
-            isOpen ? "max-h-screen py-6 opacity-100" : "max-h-0 py-0 opacity-0"
+            "lg:hidden fixed inset-x-0 top-[60px] bg-background border-b shadow-xl transition-all duration-300 overflow-y-auto max-h-[calc(100vh-60px)]",
+            isOpen ? "opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           )}
         >
-          <div className="container px-4 flex flex-col gap-4">
+          <div className="container px-4 py-6 flex flex-col gap-2">
             {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href}
-                className="text-lg font-bold text-foreground py-2 border-b border-border hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              <div key={link.name} className="flex flex-col">
+                <div className="flex items-center justify-between py-3 border-b border-border">
+                  <a 
+                    href={link.href}
+                    className="text-lg font-bold text-foreground hover:text-primary transition-colors"
+                    onClick={() => !link.hasDropdown && setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                </div>
+                {link.hasDropdown && (
+                  <div className="pl-4 flex flex-col gap-2 py-2 bg-secondary/30">
+                    {link.items?.map((item) => (
+                      <a 
+                        key={item.name}
+                        href={item.href}
+                        className="text-sm font-semibold text-muted-foreground py-1 hover:text-primary transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-            <Button className="mt-4 w-full bg-primary font-bold uppercase rounded-sm" onClick={() => setIsOpen(false)}>
-              Request a Quote
+            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-sm" onClick={() => setIsOpen(false)}>
+              <a href="#quote">Request a Quote</a>
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">
