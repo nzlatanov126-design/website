@@ -6,7 +6,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucket, Wrench, Bath, Plug, Quote } from "lucide-react";
+import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucket, Wrench, Bath, Plug, Quote, ArrowRight, MapPin } from "lucide-react";
 
 export default function Home() {
   return (
