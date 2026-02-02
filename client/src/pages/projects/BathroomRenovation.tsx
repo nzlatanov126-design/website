@@ -16,10 +16,10 @@ export default function BathroomRenovation() {
               animate={{ opacity: 1, y: 0 }}
               className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Bathroom Renovation</h1>
-              <p className="text-xl text-gray-400 mb-8">Modern designs, waterproofing, and expert tiling for your private sanctuary.</p>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Ремонт на баня</h1>
+              <p className="text-xl text-gray-400 mb-8">Модерен дизайн, хидроизолация и експертна облицовка за вашето лично убежище.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
@@ -30,14 +30,14 @@ export default function BathroomRenovation() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl font-bold font-display mb-8">What's Included</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Какво е включено</h2>
                 <ul className="space-y-4">
                   {[
-                    "Old fixture removal and disposal",
-                    "Advanced waterproofing system",
-                    "Precision tiling and grouting",
-                    "Sanitary installation (shower, sink, toilet)",
-                    "Electrical and lighting integration"
+                    "Демонтаж и извозване на стари арматури",
+                    "Усъвършенствана хидроизолация",
+                    "Прецизна облицовка и фугиране",
+                    "Монтаж на санитария (душ, мивка, тоалетна)",
+                    "Интеграция на електро и осветление"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
@@ -47,13 +47,13 @@ export default function BathroomRenovation() {
                 </ul>
               </div>
               <div className="bg-secondary/30 p-8 rounded-2xl border border-border">
-                <h2 className="text-3xl font-bold font-display mb-8">Process</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Процес</h2>
                 <div className="space-y-6">
                   {[
-                    { step: "01", title: "Design & Planning", desc: "Selecting tiles, fixtures and layout." },
-                    { step: "02", title: "Demolition & Utilities", desc: "Safe removal and plumbing/electrical prep." },
-                    { step: "03", title: "Waterproofing", desc: "Critical stage to ensure no leaks ever." },
-                    { step: "04", title: "Finishing", desc: "Tiling and installation of final hardware." }
+                    { step: "01", title: "Дизайн и планиране", desc: "Избор на плочки, арматура и разпределение." },
+                    { step: "02", title: "Демонтаж и инсталации", desc: "Безопасно премахване и подготовка на ВиК/електро." },
+                    { step: "03", title: "Хидроизолация", desc: "Критичен етап за защита от течове." },
+                    { step: "04", title: "Довършване", desc: "Облицовка и монтаж на крайна арматура." }
                   ].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="text-2xl font-black text-primary/30 font-display">{item.step}</span>
@@ -70,13 +70,13 @@ export default function BathroomRenovation() {
         </section>
 
         <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Pricing Guidance</h2>
+          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
           <p className="text-muted-foreground mb-8">
-            Bathroom renovations vary by size and materials. A complete turn-key solution starts from the following range.
+            Ремонтите на бани варират по размер и материали. Цялостно решение „до ключ" започва от следния диапазон.
           </p>
           <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Estimated range</p>
-            <p className="text-4xl font-black text-foreground font-display">3,000 - 6,000 BGN</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Ориентировъчен диапазон</p>
+            <p className="text-4xl font-black text-foreground font-display">3 000 - 6 000 лв.</p>
           </div>
         </section>
       </main>

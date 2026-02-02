@@ -12,10 +12,10 @@ export default function PlasterPutty() {
         <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Plaster & Putty</h1>
-              <p className="text-xl text-gray-400 mb-8">Expert wall smoothing and plastering for a perfectly even surface ready for any finish.</p>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Мазилка и шпакловка</h1>
+              <p className="text-xl text-gray-400 mb-8">Експертно изглаждане и мазилки за идеално равна повърхност, готова за всякакво покритие.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
@@ -26,9 +26,9 @@ export default function PlasterPutty() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl font-bold font-display mb-8">What's Included</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Какво е включено</h2>
                 <ul className="space-y-4">
-                  {["Old finish removal", "Deep priming for better adhesion", "Multi-layer plastering", "Fine putty application", "Machine sanding for smooth finish"].map((item, i) => (
+                  {["Премахване на стара мазилка", "Дълбоко грундиране за по-добра адхезия", "Многослойно мазилкане", "Финишна шпакловка", "Машинно шлайфане за гладка повърхност"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="font-medium text-foreground">{item}</span>
@@ -37,9 +37,9 @@ export default function PlasterPutty() {
                 </ul>
               </div>
               <div className="bg-secondary/30 p-8 rounded-2xl border border-border">
-                <h2 className="text-3xl font-bold font-display mb-8">Process</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Процес</h2>
                 <div className="space-y-6">
-                  {[{ step: "01", title: "Inspection", desc: "Checking wall humidity and integrity." }, { step: "02", title: "Plastering", desc: "Applying structural layers to level the surface." }, { step: "03", title: "Puttying", desc: "Final smoothing for a mirror-like result." }].map((item, i) => (
+                  {[{ step: "01", title: "Инспекция", desc: "Проверка на влажност и цялост на стените." }, { step: "02", title: "Мазилкане", desc: "Полагане на структурни слоеве за нивелиране." }, { step: "03", title: "Шпакловане", desc: "Финишно изглаждане за огледален резултат." }].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="text-2xl font-black text-primary/30 font-display">{item.step}</span>
                       <div>
@@ -55,11 +55,11 @@ export default function PlasterPutty() {
         </section>
 
         <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Pricing Guidance</h2>
-          <p className="text-muted-foreground mb-8">Final quote depends on wall condition and total area.</p>
+          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
+          <p className="text-muted-foreground mb-8">Крайната цена зависи от състоянието на стените и общата площ.</p>
           <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Starts From</p>
-            <p className="text-4xl font-black text-foreground font-display">12 BGN / m²</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цени от</p>
+            <p className="text-4xl font-black text-foreground font-display">12 лв. / м²</p>
           </div>
         </section>
       </main>

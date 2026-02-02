@@ -19,26 +19,26 @@ export function Navbar() {
   }, []);
 
   const services = [
-    { name: "Painting", href: "/services/painting" },
-    { name: "Plaster & Putty", href: "/services/plaster-putty" },
-    { name: "Tiles", href: "/services/tiles" },
-    { name: "Electrical", href: "/services/electrical" },
-    { name: "Plumbing", href: "/services/plumbing" },
-    { name: "Drywall", href: "/services/drywall" },
-    { name: "Flooring", href: "/services/flooring" }
+    { name: "Бояджийство", href: "/services/painting" },
+    { name: "Мазилка и шпакловка", href: "/services/plaster-putty" },
+    { name: "Плочки", href: "/services/tiles" },
+    { name: "Електро", href: "/services/electrical" },
+    { name: "ВиК", href: "/services/plumbing" },
+    { name: "Гипсокартон", href: "/services/drywall" },
+    { name: "Подови настилки", href: "/services/flooring" }
   ];
 
   const categories = [
-    { name: "Bathroom Renovation", href: "/projects/bathroom-renovation" },
-    { name: "Kitchen Renovation", href: "/projects/kitchen-renovation" },
-    { name: "Bedroom Renovation", href: "/projects/bedroom-renovation" },
-    { name: "Office Renovation", href: "/projects/office-renovation" }
+    { name: "Ремонт на баня", href: "/projects/bathroom-renovation" },
+    { name: "Ремонт на кухня", href: "/projects/kitchen-renovation" },
+    { name: "Ремонт на спалня", href: "/projects/bedroom-renovation" },
+    { name: "Ремонт на офис", href: "/projects/office-renovation" }
   ];
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Начало", href: "/" },
     { 
-      name: "Services", 
+      name: "Услуги", 
       href: "/#services", 
       hasDropdown: true,
       isOpen: servicesOpen,
@@ -46,17 +46,17 @@ export function Navbar() {
       items: services
     },
     { 
-      name: "Apartments & Houses", 
+      name: "Апартаменти и къщи", 
       href: "/#projects", 
       hasDropdown: true,
       isOpen: housesOpen,
       toggle: () => { setHousesOpen(!housesOpen); setServicesOpen(false); },
       items: categories
     },
-    { name: "Testimonials", href: "/#testimonials" },
-    { name: "About", href: "/#about" },
-    { name: "Blog", href: "/#blog" },
-    { name: "Contact", href: "/#quote" },
+    { name: "Отзиви", href: "/#testimonials" },
+    { name: "За нас", href: "/#about" },
+    { name: "Блог", href: "/#blog" },
+    { name: "Контакт", href: "/#quote" },
   ];
 
   return (
@@ -66,13 +66,13 @@ export function Navbar() {
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-6">
             <span className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-primary" /> Sofia, Bulgaria
+              <MapPin className="w-3.5 h-3.5 text-primary" /> София, България
             </span>
             <a href="mailto:info@gdsc.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Mail className="w-3.5 h-3.5 text-primary" /> info@gdsc.bg
             </a>
             <span className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-primary" /> Mon–Fri 09:30–18:30
+              <Clock className="w-3.5 h-3.5 text-primary" /> Пон–Пет 09:30–18:30
             </span>
           </div>
           <a href="tel:+359881234567" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
@@ -97,7 +97,7 @@ export function Navbar() {
                   GDSC
                 </span>
                 <span className="text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground group-hover:text-foreground transition-colors font-semibold">
-                  Renovations
+                  Ремонти
                 </span>
               </div>
             </Link>
@@ -138,7 +138,7 @@ export function Navbar() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full shadow-lg shadow-primary/20">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </div>
 
@@ -198,7 +198,7 @@ export function Navbar() {
               </div>
             ))}
             <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-xl" onClick={() => setIsOpen(false)}>
-              <a href="/#quote">Request a Quote</a>
+              <a href="/#quote">Поискай оферта</a>
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">

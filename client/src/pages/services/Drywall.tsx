@@ -12,10 +12,10 @@ export default function Drywall() {
         <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Drywall Services</h1>
-              <p className="text-xl text-gray-400 mb-8">Partition walls, suspended ceilings, and custom drywall structures to reshape your space.</p>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Гипсокартон</h1>
+              <p className="text-xl text-gray-400 mb-8">Преградни стени, окачени тавани и конструкции от гипсокартон за преоформяне на пространството ви.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
@@ -26,9 +26,9 @@ export default function Drywall() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl font-bold font-display mb-8">What's Included</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Какво е включено</h2>
                 <ul className="space-y-4">
-                  {["Metal structure setup", "Insulation installation", "Drywall board mounting", "Joint taping and filling", "Final sanding"].map((item, i) => (
+                  {["Изграждане на метална конструкция", "Монтаж на изолация", "Поставяне на гипсокартон", "Шпакловане и лентиране на фуги", "Финално шлайфане"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="font-medium text-foreground">{item}</span>
@@ -37,9 +37,9 @@ export default function Drywall() {
                 </ul>
               </div>
               <div className="bg-secondary/30 p-8 rounded-2xl border border-border">
-                <h2 className="text-3xl font-bold font-display mb-8">Process</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Процес</h2>
                 <div className="space-y-6">
-                  {[{ step: "01", title: "Framing", desc: "Setting up the metal skeleton." }, { step: "02", title: "Mounting", desc: "Installing boards and insulation." }, { step: "03", title: "Finishing", desc: "Joint work for a seamless surface." }].map((item, i) => (
+                  {[{ step: "01", title: "Конструкция", desc: "Изграждане на металния скелет." }, { step: "02", title: "Монтаж", desc: "Поставяне на плоскости и изолация." }, { step: "03", title: "Довършване", desc: "Шпакловане на фуги за гладка повърхност." }].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="text-2xl font-black text-primary/30 font-display">{item.step}</span>
                       <div>
@@ -55,11 +55,11 @@ export default function Drywall() {
         </section>
 
         <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Pricing Guidance</h2>
-          <p className="text-muted-foreground mb-8">Starts from basic wall structures.</p>
+          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
+          <p className="text-muted-foreground mb-8">Започва от базови стенни конструкции.</p>
           <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Starts From</p>
-            <p className="text-4xl font-black text-foreground font-display">20 BGN / m²</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цени от</p>
+            <p className="text-4xl font-black text-foreground font-display">20 лв. / м²</p>
           </div>
         </section>
       </main>

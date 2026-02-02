@@ -12,10 +12,10 @@ export default function KitchenRenovation() {
         <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Kitchen Renovation</h1>
-              <p className="text-xl text-gray-400 mb-8">Modern, functional kitchens designed for your lifestyle and culinary adventures.</p>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Ремонт на кухня</h1>
+              <p className="text-xl text-gray-400 mb-8">Модерни, функционални кухни, проектирани за вашия начин на живот и кулинарни приключения.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
@@ -26,9 +26,9 @@ export default function KitchenRenovation() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl font-bold font-display mb-8">What's Included</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Какво е включено</h2>
                 <ul className="space-y-4">
-                  {["Old cabinet and appliance removal", "Plumbing and electrical prep", "New cabinetry installation", "Countertop fitting", "Backsplash and tiling"].map((item, i) => (
+                  {["Демонтаж на стари шкафове и уреди", "Подготовка на ВиК и електро", "Монтаж на нови шкафове", "Поставяне на плот", "Облицовка на гръб и подове"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="font-medium text-foreground">{item}</span>
@@ -37,9 +37,9 @@ export default function KitchenRenovation() {
                 </ul>
               </div>
               <div className="bg-secondary/30 p-8 rounded-2xl border border-border">
-                <h2 className="text-3xl font-bold font-display mb-8">Process</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Процес</h2>
                 <div className="space-y-6">
-                  {[{ step: "01", title: "Design", desc: "Optimizing flow and functionality." }, { step: "02", title: "Utilities", desc: "Updating water and power points." }, { step: "03", title: "Install", desc: "Precision fitting of all components." }].map((item, i) => (
+                  {[{ step: "01", title: "Дизайн", desc: "Оптимизиране на поток и функционалност." }, { step: "02", title: "Инсталации", desc: "Обновяване на водни и електрически точки." }, { step: "03", title: "Монтаж", desc: "Прецизен монтаж на всички компоненти." }].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="text-2xl font-black text-primary/30 font-display">{item.step}</span>
                       <div>
@@ -55,11 +55,11 @@ export default function KitchenRenovation() {
         </section>
 
         <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Pricing Guidance</h2>
-          <p className="text-muted-foreground mb-8">Kitchen projects vary greatly based on size and finish quality.</p>
+          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
+          <p className="text-muted-foreground mb-8">Проектите за кухни варират значително според размера и качеството на довършителните работи.</p>
           <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Starts From</p>
-            <p className="text-4xl font-black text-foreground font-display">5,000+ BGN</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цени от</p>
+            <p className="text-4xl font-black text-foreground font-display">5 000+ лв.</p>
           </div>
         </section>
       </main>

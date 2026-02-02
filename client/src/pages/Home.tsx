@@ -17,10 +17,9 @@ export default function Home() {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pb-16 md:pb-24">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          {/* modern apartment interior living room renovation */}
           <img 
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" 
-            alt="Modern Interior Renovation" 
+            alt="Модерен интериор" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
@@ -34,31 +33,31 @@ export default function Home() {
             className="max-w-3xl"
           >
             <div className="inline-block px-3 py-1 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-6">
-              <span className="text-primary font-bold uppercase tracking-widest text-xs">Transform Your Space</span>
+              <span className="text-primary font-bold uppercase tracking-widest text-xs">Преобразете пространството си</span>
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-display leading-[1.1] mb-6 drop-shadow-lg">
-              Professional Home <span className="text-primary">Renovations</span> With Real <span className="text-white border-b-4 border-primary">Deadlines</span>.
+              Професионални <span className="text-primary">ремонти</span> с реални <span className="text-white border-b-4 border-primary">срокове</span>.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl font-light">
-              Turnkey apartment renovations, bathrooms, kitchens, drywall, tiles, painting, electrical and plumbing services.
+              Цялостни ремонти на апартаменти, бани, кухни, гипсокартон, плочки, бояджийство, ел. и ВиК услуги.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8 text-base shadow-lg shadow-primary/25">
-                <a href="#quote">Request a Quote</a>
+                <a href="#quote">Поискай оферта</a>
               </Button>
               <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-8 text-base font-semibold backdrop-blur-sm">
-                <a href="#services">Our Services</a>
+                <a href="#services">Нашите услуги</a>
               </Button>
             </div>
 
             {/* Trust Badges */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10">
               {[
-                { icon: ShieldCheck, text: "Written Warranty" },
-                { icon: Hammer, text: "Clean Work" },
-                { icon: CalendarClock, text: "Fixed Deadlines" },
-                { icon: Check, text: "Professional Team" }
+                { icon: ShieldCheck, text: "Писмена гаранция" },
+                { icon: Hammer, text: "Чиста работа" },
+                { icon: CalendarClock, text: "Фиксирани срокове" },
+                { icon: Check, text: "Професионален екип" }
               ].map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-3 group cursor-default">
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors">
@@ -78,18 +77,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Why Choose GDSC</span>
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Защо да изберете GDSC</span>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground">
-                  We Build Trust Through <br/> Transparency & Quality.
+                  Изграждаме доверие чрез <br/> прозрачност и качество.
                 </h2>
               </div>
               
               <div className="space-y-4">
                 {[
-                  "High quality finishing with premium materials",
-                  "Clear pricing structure - no hidden fees",
-                  "Clean execution and waste management",
-                  "Strong communication throughout the project"
+                  "Високо качество с премиум материали",
+                  "Ясна ценова структура — без скрити такси",
+                  "Чисто изпълнение и управление на отпадъците",
+                  "Силна комуникация през целия проект"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-colors">
                     <div className="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -104,7 +103,7 @@ export default function Home() {
                 <div className="flex items-center gap-4 p-6 bg-accent rounded-2xl text-white max-w-md">
                   <PhoneCall className="w-10 h-10 text-primary" />
                   <div>
-                    <p className="text-xs uppercase tracking-wider opacity-70">Have questions?</p>
+                    <p className="text-xs uppercase tracking-wider opacity-70">Имате въпроси?</p>
                     <p className="text-xl font-bold font-display">+359 88 123 4567</p>
                   </div>
                 </div>
@@ -113,19 +112,19 @@ export default function Home() {
 
             <div className="grid gap-6">
               <FeatureCard 
-                title="Quality Control" 
-                description="QUALITY — warranty & control. Rigorous supervision at every stage. We provide a written warranty for all our work."
+                title="Контрол на качеството" 
+                description="КАЧЕСТВО — гаранция и контрол. Стриктен надзор на всеки етап. Предоставяме писмена гаранция за всички дейности."
                 icon={ShieldCheck}
                 variant="primary"
               />
               <FeatureCard 
-                title="Transparent Pricing" 
-                description="PRICE — transparent offers. Detailed estimates with clear breakdowns. You'll know exactly where every cent goes."
+                title="Прозрачно ценообразуване" 
+                description="ЦЕНА — прозрачни оферти. Детайлни сметки с ясни разбивки. Ще знаете точно къде отива всяка стотинка."
                 icon={Ruler}
               />
               <FeatureCard 
-                title="Strict Deadlines" 
-                description="DEADLINES — planned execution. We respect your time. Our project management ensures work is completed on schedule."
+                title="Стриктни срокове" 
+                description="СРОКОВЕ — планирано изпълнение. Уважаваме времето ви. Управлението на проекта гарантира навременно завършване."
                 icon={CalendarClock}
               />
             </div>
@@ -137,58 +136,54 @@ export default function Home() {
       <section id="services" className="py-20 bg-secondary/30 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">What We Do</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Comprehensive Renovation Services</h2>
-            <p className="text-muted-foreground text-lg">From complete turn-key solutions to specific repairs, we handle every aspect of your home improvement.</p>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Какво правим</span>
+            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Пълен спектър ремонтни услуги</h2>
+            <p className="text-muted-foreground text-lg">От цялостни решения до ключ до специфични ремонти — справяме се с всеки аспект от обновяването на дома ви.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard 
-              title="Full Renovation" 
-              description="Complete apartment transformation from demolition to final touches. Turnkey solutions tailored to your needs."
+              title="Цялостен ремонт" 
+              description="Пълна трансформация на апартамента от събаряне до финални щрихи. Решения до ключ по ваша мярка."
               icon={Hammer}
-              // modern white living room
               image="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
-              title="Bathroom" 
-              description="Modern bathroom designs, waterproofing, tiling, and sanitary installation for your private sanctuary."
+              title="Баня" 
+              description="Модерен дизайн на бани, хидроизолация, облицовка и монтаж на санитария за вашето лично убежище."
               icon={Bath}
-              // luxury modern bathroom
               image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
-              title="Kitchens" 
-              description="Functional and stylish kitchen remodeling. Cabinetry installation, backsplashes, and appliance integration."
+              title="Кухня" 
+              description="Функционално и стилно преустройство на кухни. Монтаж на шкафове, гръб и интеграция на уреди."
               icon={Wrench}
-              // modern kitchen interior
               image="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
-              title="Painting" 
-              description="Flawless wall finishing, decorative plasters, and professional painting services for a fresh look."
+              title="Бояджийство" 
+              description="Безупречна обработка на стени, декоративни мазилки и професионално боядисване за свеж вид."
               icon={PaintBucket}
-              // painter painting wall
               image="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
-              title="Tiles & Flooring" 
-              description="Expert installation of ceramic, porcelain, laminate, and hardwood floors with perfect leveling."
+              title="Плочки и подове" 
+              description="Експертен монтаж на керамика, порцелан, ламинат и дърво с перфектно нивелиране."
               icon={Hammer}
             />
             <ServiceCard 
-              title="Drywall" 
-              description="Suspended ceilings, partition walls, and custom drywall structures to reshape your space."
+              title="Гипсокартон" 
+              description="Окачени тавани, преградни стени и конструкции от гипсокартон за преоформяне на пространството."
               icon={Ruler}
             />
             <ServiceCard 
-              title="Electrical" 
-              description="Complete rewiring, lighting design, switchboard upgrades, and smart home installations."
+              title="Електро" 
+              description="Цялостно окабеляване, осветителен дизайн, подмяна на табло и интелигентни инсталации."
               icon={Plug}
             />
             <ServiceCard 
-              title="Plumbing" 
-              description="Pipe replacement, drainage systems, and fixture installation ensuring leak-free performance."
+              title="ВиК" 
+              description="Подмяна на тръби, канализация и монтаж на арматура с гарантирана защита от течове."
               icon={Wrench}
             />
           </div>
@@ -200,8 +195,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Testimonials</span>
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">What Our Clients Say</h2>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Отзиви</span>
+              <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">Какво казват клиентите</h2>
             </div>
             <div className="flex gap-2">
               <Button variant="outline" className="rounded-full w-12 h-12 p-0 border-border hover:border-primary hover:text-primary transition-colors">
@@ -216,22 +211,22 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Maria Dimitrova",
-                project: "Full Apartment Renovation",
-                text: "The team at GDSC completely transformed our old apartment. They finished on time and the quality is outstanding. Highly recommended!",
-                location: "Sofia, Lozenets"
+                name: "Мария Димитрова",
+                project: "Цялостен ремонт на апартамент",
+                text: "Екипът на GDSC напълно преобрази стария ни апартамент. Завършиха навреме и качеството е отлично. Горещо препоръчвам!",
+                location: "София, Лозенец"
               },
               {
-                name: "Ivan Georgiev",
-                project: "Bathroom Remodel",
-                text: "Professional approach from day one. The quote was accurate, and they kept the site clean every day. The new bathroom looks amazing.",
-                location: "Sofia, Mladost"
+                name: "Иван Георгиев",
+                project: "Ремонт на баня",
+                text: "Професионален подход от първия ден. Офертата беше точна и поддържаха обекта чист всеки ден. Новата баня изглежда страхотно.",
+                location: "София, Младост"
               },
               {
-                name: "Elena Popova",
-                project: "Kitchen & Flooring",
-                text: "We needed a quick renovation before moving in. They worked efficiently and handled unexpected issues without stress. Great communication.",
-                location: "Sofia, Center"
+                name: "Елена Попова",
+                project: "Кухня и подове",
+                text: "Имахме нужда от бърз ремонт преди нанасяне. Работиха ефективно и се справиха с неочаквани проблеми без стрес. Страхотна комуникация.",
+                location: "София, Център"
               }
             ].map((review, idx) => (
               <div key={idx} className="bg-secondary/30 p-8 rounded-2xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border">
@@ -258,21 +253,21 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">FAQ</span>
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">Common Questions</h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-md">Everything you need to know about our renovation process, pricing, and warranties.</p>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">ЧЗВ</span>
+              <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">Често задавани въпроси</h2>
+              <p className="text-gray-400 text-lg mb-8 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
               <Button asChild className="bg-white text-accent hover:bg-gray-200 font-bold uppercase tracking-wider">
-                <a href="#quote">Ask a Question</a>
+                <a href="#quote">Задайте въпрос</a>
               </Button>
             </div>
 
             <div className="bg-white/5 rounded-lg border border-white/10 p-2">
               <Accordion type="single" collapsible className="w-full">
                 {[
-                  { q: "What services do you offer?", a: "We offer complete home renovation services including demolition, plumbing, electrical, dry walling, painting, tiling, and flooring installation. We specialize in turnkey apartment renovations." },
-                  { q: "How do I get an estimate?", a: "Simply fill out our contact form or give us a call. We will schedule a site visit to assess the work and provide a detailed, itemized quote typically within 48 hours." },
-                  { q: "Do you provide a warranty?", a: "Yes, we provide a written warranty for all our workmanship. The duration depends on the type of work performed, typically ranging from 2 to 5 years." },
-                  { q: "Can changes be made during renovation?", a: "Yes, changes are possible. We will discuss any implications on the timeline and budget before proceeding. We believe in flexibility to ensure you get exactly what you want." }
+                  { q: "Какви услуги предлагате?", a: "Предлагаме пълен набор ремонтни услуги, включително събаряне, ВиК, електро, гипсокартон, бояджийство, облицовка и подови настилки. Специализираме се в цялостни ремонти на апартаменти до ключ." },
+                  { q: "Как да получа оферта?", a: "Просто попълнете формата за контакт или ни се обадете. Ще насрочим оглед на място, за да оценим работата и да предоставим детайлна оферта обикновено до 48 часа." },
+                  { q: "Предоставяте ли гаранция?", a: "Да, предоставяме писмена гаранция за всички извършени дейности. Продължителността зависи от вида работа — обикновено от 2 до 5 години." },
+                  { q: "Може ли да се правят промени по време на ремонта?", a: "Да, промените са възможни. Ще обсъдим всички последици върху графика и бюджета преди да продължим. Вярваме в гъвкавостта, за да получите точно това, което искате." }
                 ].map((faq, idx) => (
                   <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 last:border-0">
                     <AccordionTrigger className="text-white hover:text-primary hover:no-underline font-semibold text-left px-4">
@@ -299,12 +294,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div className="space-y-8">
               <div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Get in Touch</span>
-                <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Start Your Project Today</h2>
+                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Свържете се с нас</span>
+                <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Започнете проекта си днес</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Ready to transform your home? Contact us for a free consultation and quote. 
-                  Our team is ready to answer all your questions and help you plan your perfect renovation.
-                  Please include your project location and a brief description of the work needed.
+                  Готови ли сте да преобразите дома си? Свържете се с нас за безплатна консултация и оферта. 
+                  Екипът ни е готов да отговори на всички ваши въпроси и да помогне при планирането на перфектния ремонт.
+                  Моля, включете местоположението на обекта и кратко описание на необходимата работа.
                 </p>
               </div>
 
@@ -314,8 +309,8 @@ export default function Home() {
                     <PhoneCall className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Phone</h4>
-                    <p className="text-muted-foreground mb-1">Mon-Fri from 9am to 6pm.</p>
+                    <h4 className="font-bold text-foreground text-lg">Телефон</h4>
+                    <p className="text-muted-foreground mb-1">Пон–Пет от 9:00 до 18:00.</p>
                     <a href="tel:+359881234567" className="text-lg font-bold hover:text-primary transition-colors">+359 88 123 4567</a>
                   </div>
                 </div>
@@ -325,9 +320,9 @@ export default function Home() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Office</h4>
-                    <p className="text-muted-foreground mb-1">Come say hello at our office HQ.</p>
-                    <p className="font-medium">Business Park Sofia, Building 12, Sofia 1766</p>
+                    <h4 className="font-bold text-foreground text-lg">Офис</h4>
+                    <p className="text-muted-foreground mb-1">Елате да се запознаем в офиса ни.</p>
+                    <p className="font-medium">Бизнес Парк София, Сграда 12, София 1766</p>
                   </div>
                 </div>
 
@@ -336,9 +331,9 @@ export default function Home() {
                     <Hammer className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Site Visit</h4>
+                    <h4 className="font-bold text-foreground text-lg">Оглед на място</h4>
                     <p className="text-muted-foreground">
-                      We offer free on-site consultations to assess your project needs accurately.
+                      Предлагаме безплатни консултации на място за точна оценка на нуждите по вашия проект.
                     </p>
                   </div>
                 </div>

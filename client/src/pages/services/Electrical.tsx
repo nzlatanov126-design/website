@@ -12,10 +12,10 @@ export default function Electrical() {
         <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Electrical Services</h1>
-              <p className="text-xl text-gray-400 mb-8">Safe, reliable, and modern electrical installations for your home or business.</p>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Електро услуги</h1>
+              <p className="text-xl text-gray-400 mb-8">Безопасни, надеждни и модерни електрически инсталации за вашия дом или бизнес.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Request a Quote</a>
+                <a href="/#quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
@@ -26,9 +26,9 @@ export default function Electrical() {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-16">
               <div>
-                <h2 className="text-3xl font-bold font-display mb-8">What's Included</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Какво е включено</h2>
                 <ul className="space-y-4">
-                  {["Complete wiring systems", "Fuse box upgrades", "Smart home integration", "Lighting design and install", "Safety testing and certification"].map((item, i) => (
+                  {["Цялостни кабелни системи", "Подмяна на електрическо табло", "Интеграция на смарт дом", "Проектиране и монтаж на осветление", "Тестове за безопасност и сертифициране"].map((item, i) => (
                     <li key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="font-medium text-foreground">{item}</span>
@@ -37,9 +37,9 @@ export default function Electrical() {
                 </ul>
               </div>
               <div className="bg-secondary/30 p-8 rounded-2xl border border-border">
-                <h2 className="text-3xl font-bold font-display mb-8">Process</h2>
+                <h2 className="text-3xl font-bold font-display mb-8">Процес</h2>
                 <div className="space-y-6">
-                  {[{ step: "01", title: "Evaluation", desc: "Assessing current electrical state and needs." }, { step: "02", title: "Installation", desc: "Safe implementation of new wiring and systems." }, { step: "03", title: "Testing", desc: "Rigorous safety checks of all points." }].map((item, i) => (
+                  {[{ step: "01", title: "Оценка", desc: "Анализ на текущото състояние и нуждите." }, { step: "02", title: "Изпълнение", desc: "Безопасен монтаж на ново окабеляване и системи." }, { step: "03", title: "Тестване", desc: "Стриктни проверки за безопасност на всички точки." }].map((item, i) => (
                     <div key={i} className="flex gap-4">
                       <span className="text-2xl font-black text-primary/30 font-display">{item.step}</span>
                       <div>
@@ -55,11 +55,11 @@ export default function Electrical() {
         </section>
 
         <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Pricing Guidance</h2>
-          <p className="text-muted-foreground mb-8">Final cost depends on the number of points and system complexity.</p>
+          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
+          <p className="text-muted-foreground mb-8">Крайната цена зависи от броя точки и сложността на системата.</p>
           <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Points starting from</p>
-            <p className="text-4xl font-black text-foreground font-display">25 BGN / pt</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цена на точка от</p>
+            <p className="text-4xl font-black text-foreground font-display">25 лв. / т.</p>
           </div>
         </section>
       </main>
