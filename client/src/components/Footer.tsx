@@ -11,9 +11,9 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/">
               <img 
-                src="/logo-gdcs.png" 
+                src="/logo-gdcs-cropped.png" 
                 alt="GDCS Construction & Finishing" 
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">

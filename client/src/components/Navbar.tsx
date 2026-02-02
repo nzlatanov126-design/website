@@ -91,11 +91,11 @@ export function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center gap-8">
             {/* Logo */}
-            <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)} data-testid="link-logo">
+            <Link href="/" className="shrink-0 flex items-center" onClick={() => setIsOpen(false)} data-testid="link-logo">
               <img 
-                src="/logo-gdcs.png" 
+                src="/logo-gdcs-cropped.png" 
                 alt="GDCS Construction & Finishing" 
-                className="h-9 md:h-10 w-auto object-contain"
+                className="h-7 md:h-9 w-auto object-contain"
               />
             </Link>
 
