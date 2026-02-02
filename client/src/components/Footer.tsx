@@ -9,25 +9,27 @@ export function Footer() {
           
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex flex-col leading-none">
-              <span className="text-3xl font-black font-display tracking-tighter text-white">
-                GDSC
-              </span>
-              <span className="text-[0.6rem] uppercase tracking-[0.2em] text-primary font-semibold">
-                Ремонти
-              </span>
-            </div>
+            <Link href="/">
+              <div className="flex flex-col leading-none cursor-pointer">
+                <span className="text-3xl font-black font-display tracking-tighter text-white">
+                  GDSC
+                </span>
+                <span className="text-[0.6rem] uppercase tracking-[0.2em] text-primary font-semibold">
+                  Ремонти
+                </span>
+              </div>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Професионални ремонтни услуги в София. Преобразяваме пространства с прецизност, прозрачност и гарантирани срокове.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" data-testid="link-facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" data-testid="link-instagram">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300" data-testid="link-linkedin">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -38,19 +40,19 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-6 text-white border-l-4 border-primary pl-4">Нашите услуги</h3>
             <ul className="space-y-3">
               {[
-                { name: 'Бояджийство', href: '#services' },
-                { name: 'Мазилка и шпакловка', href: '#services' },
-                { name: 'Плочки', href: '#services' },
-                { name: 'Електро', href: '#services' },
-                { name: 'ВиК', href: '#services' },
-                { name: 'Гипсокартон', href: '#services' },
-                { name: 'Подови настилки', href: '#services' }
+                { name: 'Бояджийство', href: '/services/painting' },
+                { name: 'Мазилка и шпакловка', href: '/services/plaster-putty' },
+                { name: 'Плочки', href: '/services/tiles' },
+                { name: 'Електро', href: '/services/electrical' },
+                { name: 'ВиК', href: '/services/plumbing' },
+                { name: 'Гипсокартон', href: '/services/drywall' },
+                { name: 'Подови настилки', href: '/services/flooring' }
               ].map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-5 group-hover:ml-0 duration-300" />
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,17 +63,17 @@ export function Footer() {
             <h3 className="text-lg font-bold mb-6 text-white border-l-4 border-primary pl-4">Компания</h3>
             <ul className="space-y-3">
               {[
-                { name: 'За нас', href: '#about' },
-                { name: 'Отзиви', href: '#testimonials' },
-                { name: 'ЧЗВ', href: '#faq' },
-                { name: 'Блог', href: '#blog' },
-                { name: 'Контакт', href: '#quote' }
+                { name: 'За нас', href: '/about' },
+                { name: 'Отзиви', href: '/testimonials' },
+                { name: 'Блог', href: '/blog' },
+                { name: 'Контакт', href: '/contact' },
+                { name: 'Поискай оферта', href: '/quote' }
               ].map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-5 group-hover:ml-0 duration-300" />
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -89,18 +91,18 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-gray-400 text-sm font-semibold">+359 88 123 4567</span>
+                <a href="tel:+359881234567" className="text-gray-400 text-sm font-semibold hover:text-primary transition-colors">+359 88 123 4567</a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-gray-400 text-sm">info@gdsc.bg</span>
+                <a href="mailto:info@gdsc.bg" className="text-gray-400 text-sm hover:text-primary transition-colors">info@gdsc.bg</a>
               </li>
             </ul>
             <div className="mt-6">
               <h4 className="text-xs uppercase tracking-widest text-primary font-bold mb-3">Последни публикации</h4>
               <ul className="space-y-2">
-                <li><a href="#blog" className="text-gray-500 hover:text-white text-xs transition-colors">5 съвета за ремонт на кухня</a></li>
-                <li><a href="#blog" className="text-gray-500 hover:text-white text-xs transition-colors">Как да изберем правилните плочки</a></li>
+                <li><Link href="/blog" className="text-gray-500 hover:text-white text-xs transition-colors">5 съвета за ремонт на кухня</Link></li>
+                <li><Link href="/blog" className="text-gray-500 hover:text-white text-xs transition-colors">Как да изберем правилните плочки</Link></li>
               </ul>
             </div>
           </div>

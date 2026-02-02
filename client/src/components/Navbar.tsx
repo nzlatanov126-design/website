@@ -39,7 +39,7 @@ export function Navbar() {
     { name: "Начало", href: "/" },
     { 
       name: "Услуги", 
-      href: "/#services", 
+      href: "/services/painting", 
       hasDropdown: true,
       isOpen: servicesOpen,
       toggle: () => { setServicesOpen(!servicesOpen); setHousesOpen(false); },
@@ -47,16 +47,16 @@ export function Navbar() {
     },
     { 
       name: "Апартаменти и къщи", 
-      href: "/#projects", 
+      href: "/projects/bathroom-renovation", 
       hasDropdown: true,
       isOpen: housesOpen,
       toggle: () => { setHousesOpen(!housesOpen); setServicesOpen(false); },
       items: categories
     },
-    { name: "Отзиви", href: "/#testimonials" },
-    { name: "За нас", href: "/#about" },
-    { name: "Блог", href: "/#blog" },
-    { name: "Контакт", href: "/#quote" },
+    { name: "Отзиви", href: "/testimonials" },
+    { name: "За нас", href: "/about" },
+    { name: "Блог", href: "/blog" },
+    { name: "Контакт", href: "/contact" },
   ];
 
   return (
@@ -109,6 +109,7 @@ export function Navbar() {
                   <Link 
                     href={link.href} 
                     className="flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
+                    data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {link.name}
                     {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />}
@@ -122,6 +123,7 @@ export function Navbar() {
                             key={item.name}
                             href={item.href}
                             className="block px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                            data-testid={`nav-dropdown-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                           >
                             {item.name}
                           </Link>
@@ -138,7 +140,7 @@ export function Navbar() {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full shadow-lg shadow-primary/20">
-                <a href="/#quote">Поискай оферта</a>
+                <Link href="/quote" data-testid="nav-cta-quote">Поискай оферта</Link>
               </Button>
             </div>
 
@@ -146,6 +148,7 @@ export function Navbar() {
             <button 
               className="lg:hidden p-2 text-foreground"
               onClick={() => setIsOpen(!isOpen)}
+              data-testid="button-mobile-menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -198,7 +201,7 @@ export function Navbar() {
               </div>
             ))}
             <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-xl" onClick={() => setIsOpen(false)}>
-              <a href="/#quote">Поискай оферта</a>
+              <Link href="/quote">Поискай оферта</Link>
             </Button>
             
             <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">

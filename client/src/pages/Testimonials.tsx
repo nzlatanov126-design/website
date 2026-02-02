@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -66,7 +67,7 @@ export default function Testimonials() {
               <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Какво казват нашите клиенти</h1>
               <p className="text-xl text-gray-400 mb-8">Доверието на нашите клиенти е най-голямата ни награда. Прочетете техните истории и се убедете сами в качеството на нашата работа.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/quote">Поискай оферта</a>
+                <Link href="/quote">Поискай оферта</Link>
               </Button>
             </motion.div>
           </div>
@@ -131,7 +132,7 @@ export default function Testimonials() {
             <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Готови ли сте да се присъедините към доволните ни клиенти?</h2>
             <p className="text-gray-400 text-lg mb-8">Свържете се с нас днес за безплатна консултация и оферта. Нека преобразим вашия дом заедно.</p>
             <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-              <a href="/quote" className="flex items-center gap-2">Поискай оферта <ArrowRight className="w-5 h-5" /></a>
+              <Link href="/quote" className="flex items-center gap-2">Поискай оферта <ArrowRight className="w-5 h-5" /></Link>
             </Button>
           </div>
         </section>
