@@ -37,11 +37,19 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-6 text-white border-l-4 border-primary pl-4">Our Services</h3>
             <ul className="space-y-3">
-              {['Apartment Renovations', 'Bathroom Remodeling', 'Kitchen Modernization', 'Painting & Plastering', 'Electrical & Plumbing'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+              {[
+                { name: 'Painting', href: '#services' },
+                { name: 'Plaster & Putty', href: '#services' },
+                { name: 'Tiles', href: '#services' },
+                { name: 'Electrical', href: '#services' },
+                { name: 'Plumbing', href: '#services' },
+                { name: 'Drywall', href: '#services' },
+                { name: 'Flooring', href: '#services' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-5 group-hover:ml-0 duration-300" />
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -52,11 +60,17 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-6 text-white border-l-4 border-primary pl-4">Company</h3>
             <ul className="space-y-3">
-              {['About Us', 'Our Projects', 'Pricing Guide', 'Careers', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
+              {[
+                { name: 'About', href: '#about' },
+                { name: 'Testimonials', href: '#testimonials' },
+                { name: 'FAQ', href: '#faq' },
+                { name: 'Blog', href: '#blog' },
+                { name: 'Contact', href: '#quote' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <a href={item.href} className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 text-primary opacity-0 group-hover:opacity-100 transition-opacity -ml-5 group-hover:ml-0 duration-300" />
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -82,6 +96,13 @@ export function Footer() {
                 <span className="text-gray-400 text-sm">info@gdsc.bg</span>
               </li>
             </ul>
+            <div className="mt-6">
+              <h4 className="text-xs uppercase tracking-widest text-primary font-bold mb-3">Latest Posts</h4>
+              <ul className="space-y-2">
+                <li><a href="#blog" className="text-gray-500 hover:text-white text-xs transition-colors">5 Tips for Kitchen Renovation</a></li>
+                <li><a href="#blog" className="text-gray-500 hover:text-white text-xs transition-colors">Choosing the Right Tiles</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 

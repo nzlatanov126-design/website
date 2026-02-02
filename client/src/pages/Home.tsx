@@ -73,7 +73,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 md:py-28 bg-background">
+      <section id="about" className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
@@ -114,18 +114,18 @@ export default function Home() {
             <div className="grid gap-6">
               <FeatureCard 
                 title="Quality Control" 
-                description="Rigorous supervision at every stage. We provide a written warranty for all our work to ensure your peace of mind."
+                description="QUALITY — warranty & control. Rigorous supervision at every stage. We provide a written warranty for all our work."
                 icon={ShieldCheck}
                 variant="primary"
               />
               <FeatureCard 
                 title="Transparent Pricing" 
-                description="Detailed estimates with clear breakdowns. You'll know exactly where every cent goes before we start."
+                description="PRICE — transparent offers. Detailed estimates with clear breakdowns. You'll know exactly where every cent goes."
                 icon={Ruler}
               />
               <FeatureCard 
                 title="Strict Deadlines" 
-                description="We respect your time. Our project management ensures work is completed on schedule as agreed."
+                description="DEADLINES — planned execution. We respect your time. Our project management ensures work is completed on schedule."
                 icon={CalendarClock}
               />
             </div>
@@ -213,7 +213,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div id="testimonials" className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: "Maria Dimitrova",
@@ -254,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-accent text-accent-foreground relative">
+      <section id="faq" className="py-20 bg-accent text-accent-foreground relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
@@ -294,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-28 bg-secondary/30 relative">
+      <section id="quote" className="py-20 md:py-28 bg-secondary/30 relative">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             <div className="space-y-8">
@@ -304,6 +304,7 @@ export default function Home() {
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   Ready to transform your home? Contact us for a free consultation and quote. 
                   Our team is ready to answer all your questions and help you plan your perfect renovation.
+                  Please include your project location and a brief description of the work needed.
                 </p>
               </div>
 
