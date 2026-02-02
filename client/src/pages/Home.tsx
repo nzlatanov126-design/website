@@ -19,7 +19,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           {/* modern apartment interior living room renovation */}
           <img 
-            src="https://pixabay.com/get/g85c3ed622e4a05f4899372af22bfd897638476d08818dd98223af3487ed7751a131ac248dc047961b7c83050828803bd9b7a1330e12c6d28b5dd88e6a346e00a_1280.jpg" 
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" 
             alt="Modern Interior Renovation" 
             className="w-full h-full object-cover"
           />
@@ -101,7 +101,7 @@ export default function Home() {
               </div>
 
               <div className="pt-4">
-                <div className="flex items-center gap-4 p-6 bg-accent rounded-sm text-white max-w-md">
+                <div className="flex items-center gap-4 p-6 bg-accent rounded-2xl text-white max-w-md">
                   <PhoneCall className="w-10 h-10 text-primary" />
                   <div>
                     <p className="text-xs uppercase tracking-wider opacity-70">Have questions?</p>
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-background overflow-hidden">
+      <section id="testimonials" className="py-20 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div className="max-w-2xl">
@@ -213,7 +213,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div id="testimonials" className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 name: "Maria Dimitrova",
@@ -234,7 +234,7 @@ export default function Home() {
                 location: "Sofia, Center"
               }
             ].map((review, idx) => (
-              <div key={idx} className="bg-secondary/30 p-8 rounded-sm relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border">
+              <div key={idx} className="bg-secondary/30 p-8 rounded-2xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border">
                 <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6 group-hover:text-primary transition-colors" />
                 <div className="flex items-center gap-1 mb-4">
                   {[1,2,3,4,5].map(star => (
@@ -261,8 +261,8 @@ export default function Home() {
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">FAQ</span>
               <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">Common Questions</h2>
               <p className="text-gray-400 text-lg mb-8 max-w-md">Everything you need to know about our renovation process, pricing, and warranties.</p>
-              <Button className="bg-white text-accent hover:bg-gray-200 font-bold uppercase tracking-wider">
-                <a href="#contact">Ask a Question</a>
+              <Button asChild className="bg-white text-accent hover:bg-gray-200 font-bold uppercase tracking-wider">
+                <a href="#quote">Ask a Question</a>
               </Button>
             </div>
 
@@ -310,7 +310,7 @@ export default function Home() {
 
               <div className="grid gap-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-sm shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
                     <PhoneCall className="w-6 h-6" />
                   </div>
                   <div>
@@ -321,7 +321,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-sm shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
@@ -332,7 +332,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-sm shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
                     <Hammer className="w-6 h-6" />
                   </div>
                   <div>
