@@ -9,10 +9,10 @@ export default function BedroomRenovation() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Ремонт на спалня</h1>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">Ремонт на спалня</h1>
               <p className="text-xl text-gray-200 mb-8">Създаване на мирно и стилно убежище за почивка и релаксация.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <a href="/#quote">Поискай оферта</a>

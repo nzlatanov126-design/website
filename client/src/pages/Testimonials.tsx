@@ -56,7 +56,7 @@ export default function Testimonials() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function Testimonials() {
               className="max-w-3xl"
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Отзиви</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Какво казват нашите клиенти</h1>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">Какво казват нашите клиенти</h1>
               <p className="text-xl text-gray-200 mb-8">Доверието на нашите клиенти е най-голямата ни награда. Прочетете техните истории и се убедете сами в качеството на нашата работа.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>

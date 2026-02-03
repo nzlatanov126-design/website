@@ -11,7 +11,7 @@ export default function About() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ export default function About() {
               className="max-w-3xl"
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">За нас</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Изграждаме доверие чрез качество</h1>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">Изграждаме доверие чрез качество</h1>
               <p className="text-xl text-gray-200 mb-8">С над 15 години опит в ремонтните услуги, GDSC е вашият надежден партньор за всякакви проекти за обновяване на дома.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>

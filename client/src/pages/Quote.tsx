@@ -76,27 +76,27 @@ export default function Quote() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="max-w-3xl"
             >
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Безплатна оферта</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Започнете проекта си днес</h1>
-              <p className="text-xl text-gray-200">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа. Безплатна консултация и оглед на място.</p>
+              <span className="text-primary font-bold uppercase tracking-widest text-xs md:text-sm mb-2 md:mb-3 block">Безплатна оферта</span>
+              <h1 className="text-3xl md:text-6xl font-bold font-display mb-3 md:mb-6 text-white">Започнете проекта си днес</h1>
+              <p className="text-base md:text-xl text-gray-200">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа.</p>
             </motion.div>
           </div>
           <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </section>
 
         {/* Form Section */}
-        <section className="py-20 bg-secondary/30">
+        <section className="py-10 md:py-20 bg-secondary/30">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-              {/* Left Column - Info */}
-              <div className="space-y-8">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
+              {/* Left Column - Info - Hidden on mobile, form first */}
+              <div className="hidden lg:block space-y-8">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">Започнете проекта си днес</h2>
                   <p className="text-muted-foreground text-lg leading-relaxed">
@@ -153,11 +153,11 @@ export default function Quote() {
                 </div>
               </div>
 
-              {/* Right Column - Form */}
-              <div className="relative">
+              {/* Right Column - Form - Shown first on mobile via order */}
+              <div className="relative order-first lg:order-last">
                 <div className="hidden md:block absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                 
-                <div className="bg-card border border-border rounded-lg shadow-xl shadow-black/5 p-8 relative overflow-hidden">
+                <div className="bg-card border border-border rounded-lg shadow-xl shadow-black/5 p-6 md:p-8 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
 
                   {isSubmitted ? (
