@@ -101,3 +101,41 @@ Preferred communication style: Simple, everyday language.
 - **Phone**: +359 89 7744774
 - **Email**: info@gdcs.bg
 - **Location**: Sofia, Bulgaria
+
+## Customer Reviews System
+
+### Database Table: `reviews`
+| Column | Type | Description |
+|--------|------|-------------|
+| id | serial | Primary key, auto-increment |
+| name | text | Customer name (required) |
+| rating | integer | 1-5 star rating (required) |
+| comment | text | Review text (required, min 10 chars) |
+| service | text | Service type (optional) |
+| approved | boolean | Approval status (default: false) |
+| created_at | timestamp | Submission timestamp |
+
+### API Endpoints
+- **GET /api/reviews** - Returns only approved reviews (public)
+- **POST /api/reviews** - Creates new review with `approved=false`
+
+### Moderation Workflow
+1. Customers submit reviews via the form on `/testimonials`
+2. Reviews are saved with `approved=false` (not visible publicly)
+3. Admin approves reviews manually via SQL:
+   ```sql
+   -- View all pending reviews
+   SELECT * FROM reviews WHERE approved = false;
+   
+   -- Approve a specific review
+   UPDATE reviews SET approved = true WHERE id = <review_id>;
+   
+   -- Delete spam/inappropriate reviews
+   DELETE FROM reviews WHERE id = <review_id>;
+   ```
+
+### Files
+- Schema: `shared/schema.ts` (reviews table definition)
+- API Routes: `server/routes.ts` (GET/POST handlers)
+- Storage: `server/storage.ts` (database operations)
+- UI: `client/src/pages/Testimonials.tsx` (display + submission form)

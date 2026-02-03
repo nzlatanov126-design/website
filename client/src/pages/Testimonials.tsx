@@ -6,13 +6,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { motion } from "framer-motion";
 import { Quote, Star, ArrowRight, Send, Loader2, CheckCircle } from "lucide-react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient, apiRequest } from "@/lib/queryClient";
-import type { Review } from "@shared/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertReviewSchema, type Review } from "@shared/schema";
+import { z } from "zod";
+
+const reviewFormSchema = insertReviewSchema.extend({
+  rating: z.number().min(1, "Моля, изберете оценка").max(5),
+});
+
+type ReviewFormData = z.infer<typeof reviewFormSchema>;
 
 const serviceOptions = [
   { value: "turnkey", label: "Цялостен ремонт" },
@@ -42,7 +51,7 @@ function StarRating({ rating, onRatingChange, interactive = false }: {
           onMouseEnter={() => interactive && setHovered(star)}
           onMouseLeave={() => interactive && setHovered(0)}
           onClick={() => interactive && onRatingChange?.(star)}
-          data-testid={`star-${star}`}
+          data-testid={`button-star-${star}`}
         >
           <Star 
             className={`w-6 h-6 transition-colors ${
@@ -58,23 +67,27 @@ function StarRating({ rating, onRatingChange, interactive = false }: {
 }
 
 function ReviewSubmissionForm() {
-  const [name, setName] = useState("");
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
-  const [service, setService] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const form = useForm<ReviewFormData>({
+    resolver: zodResolver(reviewFormSchema),
+    defaultValues: {
+      name: "",
+      rating: 0,
+      comment: "",
+      service: undefined,
+    },
+  });
+
   const mutation = useMutation({
-    mutationFn: async (data: { name: string; rating: number; comment: string; service?: string }) => {
+    mutationFn: async (data: ReviewFormData) => {
       const response = await apiRequest("POST", "/api/reviews", data);
       return response.json();
     },
     onSuccess: () => {
       setSubmitted(true);
-      setName("");
-      setRating(0);
-      setComment("");
-      setService("");
+      form.reset();
+      queryClient.invalidateQueries({ queryKey: ["/api/reviews"] });
     },
   });
 
@@ -97,99 +110,126 @@ function ReviewSubmissionForm() {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || rating === 0 || !comment.trim()) return;
-    
-    mutation.mutate({
-      name: name.trim(),
-      rating,
-      comment: comment.trim(),
-      service: service || undefined,
-    });
+  const onSubmit = (data: ReviewFormData) => {
+    mutation.mutate(data);
   };
 
   return (
     <Card className="p-8">
       <h3 className="text-2xl font-bold mb-6">Оставете отзив</h3>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="space-y-2">
-          <Label htmlFor="name">Вашето име *</Label>
-          <Input
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Иван Иванов"
-            required
-            minLength={2}
-            data-testid="input-name"
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Вашето име *</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder="Иван Иванов"
+                    data-testid="input-name"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className="space-y-2">
-          <Label>Оценка *</Label>
-          <StarRating rating={rating} onRatingChange={setRating} interactive />
-          {rating === 0 && (
-            <p className="text-sm text-muted-foreground">Моля, изберете оценка</p>
-          )}
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="service">Услуга (по избор)</Label>
-          <Select value={service} onValueChange={setService}>
-            <SelectTrigger data-testid="select-service">
-              <SelectValue placeholder="Изберете услуга" />
-            </SelectTrigger>
-            <SelectContent>
-              {serviceOptions.map((opt) => (
-                <SelectItem key={opt.value} value={opt.value}>
-                  {opt.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="comment">Вашият отзив *</Label>
-          <Textarea
-            id="comment"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            placeholder="Разкажете ни за вашия опит с GDCS..."
-            rows={4}
-            required
-            minLength={10}
-            data-testid="input-comment"
+          <FormField
+            control={form.control}
+            name="rating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Оценка *</FormLabel>
+                <FormControl>
+                  <StarRating 
+                    rating={field.value} 
+                    onRatingChange={(r) => field.onChange(r)} 
+                    interactive 
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        {mutation.isError && (
-          <p className="text-destructive text-sm">
-            Грешка при изпращане. Моля, опитайте отново.
-          </p>
-        )}
+          <FormField
+            control={form.control}
+            name="service"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Услуга (по избор)</FormLabel>
+                <Select onValueChange={field.onChange} value={field.value || ""}>
+                  <FormControl>
+                    <SelectTrigger data-testid="select-service">
+                      <SelectValue placeholder="Изберете услуга" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {serviceOptions.map((opt) => (
+                      <SelectItem 
+                        key={opt.value} 
+                        value={opt.value}
+                        data-testid={`select-item-${opt.value}`}
+                      >
+                        {opt.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <Button 
-          type="submit" 
-          size="lg"
-          disabled={mutation.isPending || rating === 0}
-          className="w-full"
-          data-testid="button-submit-review"
-        >
-          {mutation.isPending ? (
-            <>
-              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-              Изпращане...
-            </>
-          ) : (
-            <>
-              <Send className="w-4 h-4 mr-2" />
-              Изпрати отзив
-            </>
+          <FormField
+            control={form.control}
+            name="comment"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Вашият отзив *</FormLabel>
+                <FormControl>
+                  <Textarea
+                    {...field}
+                    placeholder="Разкажете ни за вашия опит с GDCS..."
+                    rows={4}
+                    data-testid="input-comment"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {mutation.isError && (
+            <p className="text-destructive text-sm">
+              Грешка при изпращане. Моля, опитайте отново.
+            </p>
           )}
-        </Button>
-      </form>
+
+          <Button 
+            type="submit" 
+            size="lg"
+            disabled={mutation.isPending}
+            className="w-full"
+            data-testid="button-submit-review"
+          >
+            {mutation.isPending ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Изпращане...
+              </>
+            ) : (
+              <>
+                <Send className="w-4 h-4 mr-2" />
+                Изпрати отзив
+              </>
+            )}
+          </Button>
+        </form>
+      </Form>
     </Card>
   );
 }
@@ -234,7 +274,7 @@ export default function Testimonials() {
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Отзиви</span>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">Какво казват нашите клиенти</h1>
               <p className="text-xl text-slate-400 mb-8">Доверието на нашите клиенти е най-голямата ни награда. Прочетете техните истории и се убедете сами в качеството на нашата работа.</p>
-              <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
+              <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8" data-testid="link-hero-quote">
                 <Link href="/quote">Поискай оферта</Link>
               </Button>
             </motion.div>
@@ -252,7 +292,7 @@ export default function Testimonials() {
                 { value: "15+", label: "Години опит" },
                 { value: "50+", label: "Експерти в екипа" }
               ].map((stat, idx) => (
-                <div key={idx}>
+                <div key={idx} data-testid={`stat-${idx}`}>
                   <p className="text-4xl md:text-5xl font-black text-primary font-display mb-2">{stat.value}</p>
                   <p className="text-muted-foreground font-medium">{stat.label}</p>
                 </div>
@@ -291,15 +331,15 @@ export default function Testimonials() {
                             <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                           ))}
                         </div>
-                        <p className="text-muted-foreground mb-4 italic leading-relaxed text-sm">"{review.comment}"</p>
+                        <p className="text-muted-foreground mb-4 italic leading-relaxed text-sm" data-testid={`text-review-comment-${review.id}`}>"{review.comment}"</p>
                         <div>
-                          <h4 className="font-bold text-foreground">{review.name}</h4>
+                          <h4 className="font-bold text-foreground" data-testid={`text-review-name-${review.id}`}>{review.name}</h4>
                           {review.service && (
-                            <p className="text-primary text-xs font-semibold uppercase tracking-wide">
+                            <p className="text-primary text-xs font-semibold uppercase tracking-wide" data-testid={`text-review-service-${review.id}`}>
                               {serviceLabels[review.service] || review.service}
                             </p>
                           )}
-                          <p className="text-muted-foreground text-xs mt-1">
+                          <p className="text-muted-foreground text-xs mt-1" data-testid={`text-review-date-${review.id}`}>
                             {formatDate(review.createdAt)}
                           </p>
                         </div>
@@ -309,7 +349,7 @@ export default function Testimonials() {
                 ) : (
                   <Card className="p-12 text-center">
                     <Quote className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground" data-testid="text-no-reviews">
                       Все още няма публикувани отзиви. Бъдете първият, който ще сподели своя опит!
                     </p>
                   </Card>
@@ -329,7 +369,7 @@ export default function Testimonials() {
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-white">Готови ли сте да се присъедините към доволните ни клиенти?</h2>
             <p className="text-slate-400 text-lg mb-8">Свържете се с нас днес за безплатна консултация и оферта. Нека преобразим вашия дом заедно.</p>
-            <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
+            <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8" data-testid="link-cta-quote">
               <Link href="/quote" className="flex items-center gap-2">Поискай оферта <ArrowRight className="w-5 h-5" /></Link>
             </Button>
           </div>
