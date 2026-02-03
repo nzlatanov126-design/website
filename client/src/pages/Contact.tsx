@@ -20,7 +20,7 @@ export default function Contact() {
               className="max-w-3xl"
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Контакти</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Свържете се с нас</h1>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Свържете се с нас</h1>
               <p className="text-xl text-gray-200 mb-8">Имате въпроси или искате да обсъдим вашия проект? Ние сме тук, за да помогнем. Свържете се с нас по удобен за вас начин.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>
@@ -143,7 +143,7 @@ export default function Contact() {
         {/* CTA */}
         <section className="py-20 bg-accent text-white">
           <div className="container mx-auto px-4 text-center max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Готови за вашия нов проект?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-white">Готови за вашия нов проект?</h2>
             <p className="text-gray-200 text-lg mb-8">Не чакайте повече. Свържете се с нас днес и нека започнем да планираме вашия перфектен ремонт.</p>
             <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
               <Link href="/quote" className="flex items-center gap-2">Поискай оферта <ArrowRight className="w-5 h-5" /></Link>

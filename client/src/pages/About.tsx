@@ -19,7 +19,7 @@ export default function About() {
               className="max-w-3xl"
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">За нас</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Изграждаме доверие чрез качество</h1>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Изграждаме доверие чрез качество</h1>
               <p className="text-xl text-gray-200 mb-8">С над 15 години опит в ремонтните услуги, GDSC е вашият надежден партньор за всякакви проекти за обновяване на дома.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>
@@ -143,7 +143,7 @@ export default function About() {
         {/* CTA */}
         <section className="py-20 bg-accent text-white">
           <div className="container mx-auto px-4 text-center max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Готови ли сте да започнем?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-white">Готови ли сте да започнем?</h2>
             <p className="text-gray-200 text-lg mb-8">Свържете се с нас днес за безплатна консултация. Нека обсъдим вашия проект и да ви покажем как можем да помогнем.</p>
             <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
               <Link href="/quote" className="flex items-center gap-2">Поискай оферта <ArrowRight className="w-5 h-5" /></Link>

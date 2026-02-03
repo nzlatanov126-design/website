@@ -84,7 +84,7 @@ export default function Quote() {
               className="max-w-3xl"
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Безплатна оферта</span>
-              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Започнете проекта си днес</h1>
+              <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 text-white">Започнете проекта си днес</h1>
               <p className="text-xl text-gray-200">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа. Безплатна консултация и оглед на място.</p>
             </motion.div>
           </div>
