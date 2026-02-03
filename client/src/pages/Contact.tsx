@@ -27,7 +27,7 @@ export default function Contact() {
               </Button>
             </motion.div>
           </div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </section>
 
         {/* Contact Info Cards */}

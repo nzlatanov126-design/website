@@ -88,7 +88,7 @@ export default function Quote() {
               <p className="text-xl text-gray-200">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа. Безплатна консултация и оглед на място.</p>
             </motion.div>
           </div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </section>
 
         {/* Form Section */}
@@ -155,7 +155,7 @@ export default function Quote() {
 
               {/* Right Column - Form */}
               <div className="relative">
-                <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="hidden md:block absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
                 
                 <div className="bg-card border border-border rounded-lg shadow-xl shadow-black/5 p-8 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
