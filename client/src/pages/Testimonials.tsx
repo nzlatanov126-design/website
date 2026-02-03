@@ -1,56 +1,224 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { motion } from "framer-motion";
-import { Quote, Star, MapPin, ArrowRight } from "lucide-react";
+import { Quote, Star, ArrowRight, Send, Loader2, CheckCircle } from "lucide-react";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { queryClient, apiRequest } from "@/lib/queryClient";
+import type { Review } from "@shared/schema";
 
-const testimonials = [
-  {
-    name: "Мария Димитрова",
-    project: "Цялостен ремонт на апартамент",
-    text: "Екипът на GDSC напълно преобрази стария ни апартамент. Завършиха навреме и качеството е отлично. Горещо препоръчвам!",
-    location: "София, Лозенец",
-    rating: 5
-  },
-  {
-    name: "Иван Георгиев",
-    project: "Ремонт на баня",
-    text: "Професионален подход от първия ден. Офертата беше точна и поддържаха обекта чист всеки ден. Новата баня изглежда страхотно.",
-    location: "София, Младост",
-    rating: 5
-  },
-  {
-    name: "Елена Попова",
-    project: "Кухня и подове",
-    text: "Имахме нужда от бърз ремонт преди нанасяне. Работиха ефективно и се справиха с неочаквани проблеми без стрес. Страхотна комуникация.",
-    location: "София, Център",
-    rating: 5
-  },
-  {
-    name: "Петър Стоянов",
-    project: "Електро и ВиК",
-    text: "Подмениха цялата електрическа инсталация в панелния ни апартамент. Работата беше чиста и професионална. Много съм доволен от резултата.",
-    location: "София, Люлин",
-    rating: 5
-  },
-  {
-    name: "Анна Николова",
-    project: "Гипсокартон и боядисване",
-    text: "Направиха невероятен окачен таван с вградено осветление. Екипът беше много внимателен към детайлите и изключително учтив.",
-    location: "София, Витоша",
-    rating: 5
-  },
-  {
-    name: "Георги Василев",
-    project: "Ремонт на офис",
-    text: "Преобразиха офиса ни за две седмици. Работиха през уикендите, за да не пречат на бизнеса ни. Резултатът е впечатляващ!",
-    location: "София, Бизнес Парк",
-    rating: 5
-  }
+const serviceOptions = [
+  { value: "turnkey", label: "Цялостен ремонт" },
+  { value: "bathroom", label: "Ремонт на баня" },
+  { value: "painting", label: "Боядисване и шпакловка" },
+  { value: "flooring", label: "Подови настилки / плочки" },
+  { value: "drywall", label: "Гипсокартон / окачени тавани" },
+  { value: "finishing", label: "Довършителни работи" },
+  { value: "commercial", label: "Търговски обекти" },
 ];
 
+function StarRating({ rating, onRatingChange, interactive = false }: { 
+  rating: number; 
+  onRatingChange?: (r: number) => void;
+  interactive?: boolean;
+}) {
+  const [hovered, setHovered] = useState(0);
+  
+  return (
+    <div className="flex items-center gap-1">
+      {[1, 2, 3, 4, 5].map((star) => (
+        <button
+          key={star}
+          type="button"
+          disabled={!interactive}
+          className={`${interactive ? 'cursor-pointer hover:scale-110 transition-transform' : 'cursor-default'}`}
+          onMouseEnter={() => interactive && setHovered(star)}
+          onMouseLeave={() => interactive && setHovered(0)}
+          onClick={() => interactive && onRatingChange?.(star)}
+          data-testid={`star-${star}`}
+        >
+          <Star 
+            className={`w-6 h-6 transition-colors ${
+              (hovered || rating) >= star 
+                ? 'fill-primary text-primary' 
+                : 'fill-muted text-muted-foreground'
+            }`} 
+          />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function ReviewSubmissionForm() {
+  const [name, setName] = useState("");
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
+  const [service, setService] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: async (data: { name: string; rating: number; comment: string; service?: string }) => {
+      const response = await apiRequest("POST", "/api/reviews", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      setSubmitted(true);
+      setName("");
+      setRating(0);
+      setComment("");
+      setService("");
+    },
+  });
+
+  if (submitted) {
+    return (
+      <Card className="p-8 text-center">
+        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+        <h3 className="text-2xl font-bold mb-2">Благодарим за отзива!</h3>
+        <p className="text-muted-foreground mb-6">
+          Вашият отзив беше изпратен успешно и ще бъде публикуван след преглед.
+        </p>
+        <Button 
+          variant="outline" 
+          onClick={() => setSubmitted(false)}
+          data-testid="button-write-another"
+        >
+          Напиши нов отзив
+        </Button>
+      </Card>
+    );
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || rating === 0 || !comment.trim()) return;
+    
+    mutation.mutate({
+      name: name.trim(),
+      rating,
+      comment: comment.trim(),
+      service: service || undefined,
+    });
+  };
+
+  return (
+    <Card className="p-8">
+      <h3 className="text-2xl font-bold mb-6">Оставете отзив</h3>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="space-y-2">
+          <Label htmlFor="name">Вашето име *</Label>
+          <Input
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Иван Иванов"
+            required
+            minLength={2}
+            data-testid="input-name"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Label>Оценка *</Label>
+          <StarRating rating={rating} onRatingChange={setRating} interactive />
+          {rating === 0 && (
+            <p className="text-sm text-muted-foreground">Моля, изберете оценка</p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="service">Услуга (по избор)</Label>
+          <Select value={service} onValueChange={setService}>
+            <SelectTrigger data-testid="select-service">
+              <SelectValue placeholder="Изберете услуга" />
+            </SelectTrigger>
+            <SelectContent>
+              {serviceOptions.map((opt) => (
+                <SelectItem key={opt.value} value={opt.value}>
+                  {opt.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="comment">Вашият отзив *</Label>
+          <Textarea
+            id="comment"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Разкажете ни за вашия опит с GDCS..."
+            rows={4}
+            required
+            minLength={10}
+            data-testid="input-comment"
+          />
+        </div>
+
+        {mutation.isError && (
+          <p className="text-destructive text-sm">
+            Грешка при изпращане. Моля, опитайте отново.
+          </p>
+        )}
+
+        <Button 
+          type="submit" 
+          size="lg"
+          disabled={mutation.isPending || rating === 0}
+          className="w-full"
+          data-testid="button-submit-review"
+        >
+          {mutation.isPending ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              Изпращане...
+            </>
+          ) : (
+            <>
+              <Send className="w-4 h-4 mr-2" />
+              Изпрати отзив
+            </>
+          )}
+        </Button>
+      </form>
+    </Card>
+  );
+}
+
+function formatDate(date: Date | string | null) {
+  if (!date) return "";
+  const d = new Date(date);
+  return d.toLocaleDateString("bg-BG", { 
+    year: "numeric", 
+    month: "long", 
+    day: "numeric" 
+  });
+}
+
 export default function Testimonials() {
+  const { data: reviews, isLoading } = useQuery<Review[]>({
+    queryKey: ["/api/reviews"],
+  });
+
+  const serviceLabels: Record<string, string> = {
+    turnkey: "Цялостен ремонт",
+    bathroom: "Ремонт на баня",
+    painting: "Боядисване и шпакловка",
+    flooring: "Подови настилки / плочки",
+    drywall: "Гипсокартон / окачени тавани",
+    finishing: "Довършителни работи",
+    commercial: "Търговски обекти",
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -93,35 +261,65 @@ export default function Testimonials() {
           </div>
         </section>
 
-        {/* Testimonials Grid */}
+        {/* Reviews Grid */}
         <section className="py-20 bg-secondary/30">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((review, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white p-8 rounded-2xl relative group hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border"
-                >
-                  <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6 group-hover:text-primary transition-colors" />
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Reviews List */}
+              <div className="lg:col-span-2">
+                <h2 className="text-2xl font-bold mb-8">Клиентски отзиви</h2>
+                
+                {isLoading ? (
+                  <div className="flex items-center justify-center py-12">
+                    <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                  </div>
+                ) : reviews && reviews.length > 0 ? (
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {reviews.map((review, idx) => (
+                      <motion.div 
+                        key={review.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        viewport={{ once: true }}
+                        className="bg-white p-6 rounded-2xl relative group hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border"
+                        data-testid={`review-card-${review.id}`}
+                      >
+                        <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4 group-hover:text-primary transition-colors" />
+                        <div className="flex items-center gap-1 mb-3">
+                          {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                          ))}
+                        </div>
+                        <p className="text-muted-foreground mb-4 italic leading-relaxed text-sm">"{review.comment}"</p>
+                        <div>
+                          <h4 className="font-bold text-foreground">{review.name}</h4>
+                          {review.service && (
+                            <p className="text-primary text-xs font-semibold uppercase tracking-wide">
+                              {serviceLabels[review.service] || review.service}
+                            </p>
+                          )}
+                          <p className="text-muted-foreground text-xs mt-1">
+                            {formatDate(review.createdAt)}
+                          </p>
+                        </div>
+                      </motion.div>
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-6 italic leading-relaxed">"{review.text}"</p>
-                  <div>
-                    <h4 className="font-bold text-foreground font-display">{review.name}</h4>
-                    <p className="text-primary text-xs font-semibold uppercase tracking-wide mb-1">{review.project}</p>
-                    <p className="text-muted-foreground text-xs flex items-center gap-1">
-                      <MapPin className="w-3 h-3" /> {review.location}
+                ) : (
+                  <Card className="p-12 text-center">
+                    <Quote className="w-12 h-12 text-muted-foreground/30 mx-auto mb-4" />
+                    <p className="text-muted-foreground">
+                      Все още няма публикувани отзиви. Бъдете първият, който ще сподели своя опит!
                     </p>
-                  </div>
-                </motion.div>
-              ))}
+                  </Card>
+                )}
+              </div>
+
+              {/* Submission Form */}
+              <div>
+                <ReviewSubmissionForm />
+              </div>
             </div>
           </div>
         </section>
