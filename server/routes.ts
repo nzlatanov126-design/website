@@ -42,6 +42,34 @@ export async function registerRoutes(
     }
   });
 
+  // Reviews routes
+  app.get(api.reviews.list.path, async (req, res) => {
+    try {
+      const reviews = await storage.getApprovedReviews();
+      res.status(200).json(reviews);
+    } catch (err) {
+      console.error("Error fetching reviews:", err);
+      res.status(500).json({ message: "Грешка при зареждане на отзивите" });
+    }
+  });
+
+  app.post(api.reviews.create.path, async (req, res) => {
+    try {
+      const input = api.reviews.create.input.parse(req.body);
+      const review = await storage.createReview(input);
+      res.status(201).json(review);
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        return res.status(400).json({
+          message: err.errors[0].message,
+          field: err.errors[0].path.join('.'),
+        });
+      }
+      console.error("Error creating review:", err);
+      res.status(500).json({ message: "Грешка при запазване на отзива" });
+    }
+  });
+
   app.post("/api/quote", async (req, res) => {
     try {
       const data = quoteRequestSchema.parse(req.body);

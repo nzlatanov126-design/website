@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { insertInquirySchema, inquiries } from "./schema";
+import { insertInquirySchema, inquiries, insertReviewSchema, reviews } from "./schema";
 
 export const errorSchemas = {
   validation: z.object({
@@ -26,7 +26,28 @@ export const api = {
       },
     },
   },
+  reviews: {
+    list: {
+      method: "GET" as const,
+      path: "/api/reviews",
+      responses: {
+        200: z.array(z.custom<typeof reviews.$inferSelect>()),
+      },
+    },
+    create: {
+      method: "POST" as const,
+      path: "/api/reviews",
+      input: insertReviewSchema,
+      responses: {
+        201: z.custom<typeof reviews.$inferSelect>(),
+        400: errorSchemas.validation,
+      },
+    },
+  },
 };
+
+export type InsertInquiry = z.infer<typeof insertInquirySchema>;
+export type InsertReview = z.infer<typeof insertReviewSchema>;
 
 export function buildUrl(
   path: string,
