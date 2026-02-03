@@ -143,44 +143,52 @@ export default function Home() {
               description="Пълна трансформация на апартамента от събаряне до финални щрихи."
               icon={Hammer}
               image="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop"
+              href="/services/plaster-putty"
             />
             <ServiceCard 
               title="Баня" 
               description="Модерен дизайн на бани, хидроизолация, облицовка и монтаж на санитария."
               icon={Bath}
               image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=800&auto=format&fit=crop"
+              href="/services/tiles"
             />
             <ServiceCard 
               title="Кухня" 
               description="Функционално и стилно преустройство на кухни. Монтаж на шкафове и интеграция на уреди."
               icon={Wrench}
               image="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop"
+              href="/services/tiles"
             />
             <ServiceCard 
               title="Бояджийство" 
               description="Безупречна обработка на стени, декоративни мазилки и професионално боядисване."
               icon={PaintBucket}
               image="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop"
+              href="/services/painting"
             />
             <ServiceCard 
               title="Плочки и подове" 
               description="Експертен монтаж на керамика, порцелан, ламинат и дърво с перфектно нивелиране."
               icon={Hammer}
+              href="/services/flooring"
             />
             <ServiceCard 
               title="Гипсокартон" 
               description="Окачени тавани, преградни стени и конструкции от гипсокартон."
               icon={Ruler}
+              href="/services/drywall"
             />
             <ServiceCard 
               title="Електро" 
               description="Цялостно окабеляване, осветителен дизайн и интелигентни инсталации."
               icon={Plug}
+              href="/services/electrical"
             />
             <ServiceCard 
               title="ВиК" 
               description="Подмяна на тръби, канализация и монтаж на арматура с гарантирана защита."
               icon={Wrench}
+              href="/services/plumbing"
             />
           </div>
         </div>

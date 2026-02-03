@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 
 interface ServiceCardProps {
@@ -5,11 +6,12 @@ interface ServiceCardProps {
   description: string;
   icon: LucideIcon;
   image?: string;
+  href?: string;
 }
 
-export function ServiceCard({ title, description, icon: Icon, image }: ServiceCardProps) {
-  return (
-    <div className="group bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
+export function ServiceCard({ title, description, icon: Icon, image, href }: ServiceCardProps) {
+  const content = (
+    <div className="group bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:bg-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col h-full cursor-pointer">
       <div className="relative h-48 overflow-hidden bg-[#1E293B]">
         {image ? (
           <img 
@@ -24,7 +26,6 @@ export function ServiceCard({ title, description, icon: Icon, image }: ServiceCa
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] to-transparent opacity-70" />
         
-        {/* Floating Icon Badge */}
         <div className="absolute bottom-4 left-4 w-12 h-12 bg-primary rounded-lg flex items-center justify-center shadow-lg transform group-hover:-translate-y-1 transition-transform duration-300">
           <Icon className="w-6 h-6 text-primary-foreground" />
         </div>
@@ -35,12 +36,22 @@ export function ServiceCard({ title, description, icon: Icon, image }: ServiceCa
         <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">{description}</p>
         
         <div className="mt-auto">
-          <button className="text-sm font-semibold text-white/80 flex items-center gap-2 group/btn hover:text-primary transition-colors">
+          <span className="text-sm font-semibold text-white/80 flex items-center gap-2 group-hover:text-primary transition-colors">
             Научете повече
-            <ArrowRight className="w-4 h-4 text-primary transform group-hover/btn:translate-x-1 transition-transform" />
-          </button>
+            <ArrowRight className="w-4 h-4 text-primary transform group-hover:translate-x-1 transition-transform" />
+          </span>
         </div>
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} data-testid={`link-service-${title.toLowerCase().replace(/\s+/g, '-')}`}>
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }
