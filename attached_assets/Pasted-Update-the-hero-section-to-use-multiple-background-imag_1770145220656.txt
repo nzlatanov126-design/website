@@ -1,0 +1,58 @@
+Update the hero section to use multiple background images that rotate periodically instead of a single static image.
+
+GOAL
+Show different services visually by rotating high-quality images in the hero section, while keeping the text, layout, and CTAs stable.
+
+REQUIREMENTS
+
+1) HERO IMAGE SLIDER
+- Replace the single hero background image with a background image slider.
+- Use 4–5 images, each representing a different service:
+  - Apartment renovation
+  - Bathroom renovation
+  - Kitchen renovation
+  - Interior finishing works
+  - Modern residential exterior
+- Images should transition automatically every 5–7 seconds.
+- Use smooth fade or crossfade transitions (no sliding animations).
+
+2) TEXT & CTA BEHAVIOR
+- Hero headline, subtext, and buttons must remain static and NOT move during image transitions.
+- Text must stay readable at all times.
+
+3) OVERLAY & READABILITY
+- Apply a consistent dark gradient overlay on all hero images.
+- Ensure text contrast is strong on every image.
+- Overlay should be reused across slides for consistency.
+
+4) RESPONSIVENESS
+- Slider must work correctly on desktop, tablet, and mobile.
+- Images must scale properly (cover, center).
+- No layout shift during transitions.
+
+5) PERFORMANCE
+- Optimize images for web use.
+- Lazy-load non-initial images if possible.
+- Do not block page load.
+
+6) ACCESSIBILITY & UX
+- No autoplay controls visible (clean hero).
+- No rapid flashing or distracting effects.
+- Ensure no horizontal scroll or overflow.
+
+7) IMPLEMENTATION NOTES
+- Use existing framework/components in the project.
+- If using React, keep the logic clean and reusable.
+- Avoid external heavy slider libraries unless already present.
+- Keep code maintainable and simple.
+
+ACCEPTANCE CRITERIA
+- Hero cycles through multiple service images automatically.
+- Text and buttons remain stable.
+- Smooth fade transitions.
+- Fully responsive.
+- No console errors.
+
+After implementation:
+- List the images used
+- Explain how to replace or add new hero images later

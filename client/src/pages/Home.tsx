@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FeatureCard } from "@/components/FeatureCard";
+import { HeroSlider } from "@/components/HeroSlider";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucket, Wrench, Bath, Plug, Quote, ArrowRight, MapPin } from "lucide-react";
@@ -13,18 +14,10 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Section - Premium Architectural Style */}
+      {/* Hero Section - Premium Architectural Style with Image Slider */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" 
-            alt="Модерна архитектура" 
-            className="w-full h-full object-cover"
-          />
-          {/* Premium gradient overlay - darker top-left to lighter bottom-right */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A]/95 via-[#0F172A]/80 to-[#0F172A]/40" />
-        </div>
+        {/* Background Image Slider */}
+        <HeroSlider interval={6000} />
 
         <div className="container relative z-10 px-4 py-20 md:py-32">
           <motion.div 
