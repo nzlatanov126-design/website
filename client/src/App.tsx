@@ -20,7 +20,6 @@ import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
 import Testimonials from "@/pages/Testimonials";
 import About from "@/pages/About";
-import Blog from "@/pages/Blog";
 import Quote from "@/pages/Quote";
 import Painting from "@/pages/services/Painting";
 import PlasterPutty from "@/pages/services/PlasterPutty";
@@ -40,7 +39,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/about" component={About} />
-      <Route path="/blog" component={Blog} />
       <Route path="/quote" component={Quote} />
       <Route path="/services/painting" component={Painting} />
       <Route path="/services/plaster-putty" component={PlasterPutty} />

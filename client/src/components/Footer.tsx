@@ -62,7 +62,6 @@ export function Footer() {
               {[
                 { name: 'За нас', href: '/about' },
                 { name: 'Отзиви', href: '/testimonials' },
-                { name: 'Блог', href: '/blog' },
                 { name: 'Поискай оферта', href: '/quote' }
               ].map((item) => (
                 <li key={item.name}>
