@@ -10,60 +10,63 @@ import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucke
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col font-sans">
+    <div className="min-h-screen flex flex-col">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pb-16 md:pb-24">
-        {/* Background Image with Overlay */}
+      {/* Hero Section - Premium Architectural Style */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" 
-            alt="Модерен интериор" 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop" 
+            alt="Модерна архитектура" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
+          {/* Premium gradient overlay - darker top-left to lighter bottom-right */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A]/95 via-[#0F172A]/80 to-[#0F172A]/40" />
         </div>
 
-        <div className="container relative z-10 px-4 pt-16">
+        <div className="container relative z-10 px-4 py-20 md:py-32">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <div className="inline-block px-3 py-1 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-6">
-              <span className="text-primary font-bold uppercase tracking-widest text-xs">Преобразете пространството си</span>
-            </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-display leading-[1.1] mb-6 drop-shadow-lg">
-              Професионални <span className="text-primary">ремонти</span> с реални <span className="text-white border-b-4 border-primary">срокове</span>.
+            <span className="inline-block text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-6">
+              Преобразете пространството си
+            </span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] mb-8 text-shadow-lg">
+              Професионални
+              <br />
+              <span className="text-primary">ремонти</span> с реални срокове.
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl font-light">
+            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-2xl font-light">
               Цялостни ремонти на апартаменти, бани, кухни, гипсокартон, плочки, бояджийство, ел. и ВиК услуги.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8 text-base shadow-lg shadow-primary/25">
+            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+              <Button size="lg" asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-10 text-base rounded-md">
                 <a href="#quote">Поискай оферта</a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-8 text-base font-semibold backdrop-blur-sm">
+              <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-10 text-base font-semibold rounded-md backdrop-blur-sm">
                 <a href="#services">Нашите услуги</a>
               </Button>
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { icon: ShieldCheck, text: "Писмена гаранция" },
                 { icon: Hammer, text: "Чиста работа" },
                 { icon: CalendarClock, text: "Фиксирани срокове" },
                 { icon: Check, text: "Професионален екип" }
               ].map((badge, idx) => (
-                <div key={idx} className="flex items-center gap-3 group cursor-default">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-colors">
-                    <badge.icon className="w-5 h-5 text-primary" />
+                <div key={idx} className="flex items-center gap-3 group">
+                  <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/50 transition-all">
+                    <badge.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <span className="text-white text-sm font-semibold leading-tight">{badge.text}</span>
+                  <span className="text-white text-sm font-medium leading-tight">{badge.text}</span>
                 </div>
               ))}
             </div>
@@ -71,15 +74,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section id="about" className="py-20 md:py-28 bg-background">
+      {/* Why Choose Us - Light Section */}
+      <section id="about" className="py-24 md:py-32 bg-[#F8FAFC]">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-10">
               <div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">Защо да изберете GDSC</span>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground">
-                  Изграждаме доверие чрез <br/> прозрачност и качество.
+                <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Защо да изберете GDSC</span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight">
+                  Изграждаме доверие чрез прозрачност и качество.
                 </h2>
               </div>
               
@@ -90,21 +93,21 @@ export default function Home() {
                   "Чисто изпълнение и управление на отпадъците",
                   "Силна комуникация през целия проект"
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-4 p-4 rounded-lg hover:bg-secondary/50 transition-colors">
-                    <div className="mt-1 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5 text-primary font-bold" />
+                  <div key={idx} className="flex items-start gap-4 p-4 rounded-lg hover:bg-white transition-colors">
+                    <div className="mt-1 w-6 h-6 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
+                      <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <p className="text-foreground font-medium">{item}</p>
+                    <p className="text-[#334155] font-medium text-lg">{item}</p>
                   </div>
                 ))}
               </div>
 
               <div className="pt-4">
-                <div className="flex items-center gap-4 p-6 bg-accent rounded-2xl text-white max-w-md">
-                  <PhoneCall className="w-10 h-10 text-primary" />
+                <div className="flex items-center gap-5 p-6 bg-[#0F172A] rounded-xl text-white max-w-md">
+                  <PhoneCall className="w-12 h-12 text-primary" />
                   <div>
-                    <p className="text-xs uppercase tracking-wider opacity-70">Имате въпроси?</p>
-                    <p className="text-xl font-bold font-display">+359 89 7744774</p>
+                    <p className="text-sm uppercase tracking-wider text-slate-400">Имате въпроси?</p>
+                    <p className="text-2xl font-bold">+359 89 7744774</p>
                   </div>
                 </div>
               </div>
@@ -113,18 +116,18 @@ export default function Home() {
             <div className="grid gap-6">
               <FeatureCard 
                 title="Контрол на качеството" 
-                description="КАЧЕСТВО — гаранция и контрол. Стриктен надзор на всеки етап. Предоставяме писмена гаранция за всички дейности."
+                description="Стриктен надзор на всеки етап. Предоставяме писмена гаранция за всички дейности."
                 icon={ShieldCheck}
                 variant="primary"
               />
               <FeatureCard 
                 title="Прозрачно ценообразуване" 
-                description="ЦЕНА — прозрачни оферти. Детайлни сметки с ясни разбивки. Ще знаете точно къде отива всяка стотинка."
+                description="Детайлни сметки с ясни разбивки. Ще знаете точно къде отива всяка стотинка."
                 icon={Ruler}
               />
               <FeatureCard 
                 title="Стриктни срокове" 
-                description="СРОКОВЕ — планирано изпълнение. Уважаваме времето ви. Управлението на проекта гарантира навременно завършване."
+                description="Уважаваме времето ви. Управлението на проекта гарантира навременно завършване."
                 icon={CalendarClock}
               />
             </div>
@@ -132,37 +135,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-secondary/30 border-y border-border">
+      {/* Services Section - Dark Section */}
+      <section id="services" className="py-24 md:py-32 bg-[#0F172A]">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Какво правим</span>
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Пълен спектър ремонтни услуги</h2>
-            <p className="text-muted-foreground text-lg">От цялостни решения до ключ до специфични ремонти — справяме се с всеки аспект от обновяването на дома ви.</p>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Какво правим</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Пълен спектър ремонтни услуги</h2>
+            <p className="text-slate-400 text-lg">От цялостни решения до ключ до специфични ремонти — справяме се с всеки аспект от обновяването на дома ви.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ServiceCard 
               title="Цялостен ремонт" 
-              description="Пълна трансформация на апартамента от събаряне до финални щрихи. Решения до ключ по ваша мярка."
+              description="Пълна трансформация на апартамента от събаряне до финални щрихи."
               icon={Hammer}
               image="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
               title="Баня" 
-              description="Модерен дизайн на бани, хидроизолация, облицовка и монтаж на санитария за вашето лично убежище."
+              description="Модерен дизайн на бани, хидроизолация, облицовка и монтаж на санитария."
               icon={Bath}
               image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
               title="Кухня" 
-              description="Функционално и стилно преустройство на кухни. Монтаж на шкафове, гръб и интеграция на уреди."
+              description="Функционално и стилно преустройство на кухни. Монтаж на шкафове и интеграция на уреди."
               icon={Wrench}
               image="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop"
             />
             <ServiceCard 
               title="Бояджийство" 
-              description="Безупречна обработка на стени, декоративни мазилки и професионално боядисване за свеж вид."
+              description="Безупречна обработка на стени, декоративни мазилки и професионално боядисване."
               icon={PaintBucket}
               image="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop"
             />
@@ -173,36 +176,36 @@ export default function Home() {
             />
             <ServiceCard 
               title="Гипсокартон" 
-              description="Окачени тавани, преградни стени и конструкции от гипсокартон за преоформяне на пространството."
+              description="Окачени тавани, преградни стени и конструкции от гипсокартон."
               icon={Ruler}
             />
             <ServiceCard 
               title="Електро" 
-              description="Цялостно окабеляване, осветителен дизайн, подмяна на табло и интелигентни инсталации."
+              description="Цялостно окабеляване, осветителен дизайн и интелигентни инсталации."
               icon={Plug}
             />
             <ServiceCard 
               title="ВиК" 
-              description="Подмяна на тръби, канализация и монтаж на арматура с гарантирана защита от течове."
+              description="Подмяна на тръби, канализация и монтаж на арматура с гарантирана защита."
               icon={Wrench}
             />
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-background overflow-hidden">
+      {/* Testimonials - Light Section */}
+      <section id="testimonials" className="py-24 md:py-32 bg-[#F8FAFC] overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Отзиви</span>
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground">Какво казват клиентите</h2>
+              <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Отзиви</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground">Какво казват клиентите</h2>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" className="rounded-full w-12 h-12 p-0 border-border hover:border-primary hover:text-primary transition-colors">
+            <div className="flex gap-3">
+              <Button variant="outline" className="rounded-lg w-12 h-12 p-0 border-[#E2E8F0] hover:border-primary hover:text-primary transition-colors">
                 <ArrowRight className="w-5 h-5 rotate-180" />
               </Button>
-              <Button variant="outline" className="rounded-full w-12 h-12 p-0 border-border hover:border-primary hover:text-primary transition-colors">
+              <Button variant="outline" className="rounded-lg w-12 h-12 p-0 border-[#E2E8F0] hover:border-primary hover:text-primary transition-colors">
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
@@ -229,18 +232,18 @@ export default function Home() {
                 location: "София, Център"
               }
             ].map((review, idx) => (
-              <div key={idx} className="bg-secondary/30 p-8 rounded-2xl relative group hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-border">
-                <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6 group-hover:text-primary transition-colors" />
-                <div className="flex items-center gap-1 mb-4">
+              <div key={idx} className="bg-white p-8 rounded-xl relative group hover:shadow-xl transition-all duration-300 border border-[#E2E8F0]">
+                <Quote className="w-10 h-10 text-primary/20 absolute top-6 right-6 group-hover:text-primary/40 transition-colors" />
+                <div className="flex items-center gap-1 mb-5">
                   {[1,2,3,4,5].map(star => (
-                    <div key={star} className="w-4 h-4 bg-primary text-primary-foreground flex items-center justify-center text-[10px] rounded-sm">★</div>
+                    <div key={star} className="w-5 h-5 bg-primary text-primary-foreground flex items-center justify-center text-xs rounded">★</div>
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-6 italic leading-relaxed">"{review.text}"</p>
+                <p className="text-[#64748B] mb-6 italic leading-relaxed text-lg">"{review.text}"</p>
                 <div>
-                  <h4 className="font-bold text-foreground font-display">{review.name}</h4>
-                  <p className="text-primary text-xs font-semibold uppercase tracking-wide mb-1">{review.project}</p>
-                  <p className="text-muted-foreground text-xs">{review.location}</p>
+                  <h4 className="font-bold text-primary-foreground text-lg">{review.name}</h4>
+                  <p className="text-primary text-sm font-semibold uppercase tracking-wide mb-1">{review.project}</p>
+                  <p className="text-[#94A3B8] text-sm">{review.location}</p>
                 </div>
               </div>
             ))}
@@ -248,20 +251,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-accent text-accent-foreground relative">
+      {/* FAQ Section - Dark Section */}
+      <section id="faq" className="py-24 md:py-32 bg-[#0F172A] relative">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-20">
             <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">ЧЗВ</span>
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">Често задавани въпроси</h2>
-              <p className="text-gray-200 text-lg mb-8 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
-              <Button asChild className="bg-white text-accent hover:bg-gray-200 font-bold uppercase tracking-wider">
+              <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">ЧЗВ</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8">Често задавани въпроси</h2>
+              <p className="text-slate-400 text-lg mb-10 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
+              <Button asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded-md h-12 px-8">
                 <a href="#quote">Задайте въпрос</a>
               </Button>
             </div>
 
-            <div className="bg-white/5 rounded-lg border border-white/10 p-2">
+            <div className="bg-white/5 rounded-xl border border-white/10 p-4">
               <Accordion type="single" collapsible className="w-full">
                 {[
                   { q: "Какви услуги предлагате?", a: "Предлагаме пълен набор ремонтни услуги, включително събаряне, ВиК, електро, гипсокартон, бояджийство, облицовка и подови настилки. Специализираме се в цялостни ремонти на апартаменти до ключ." },
@@ -270,10 +273,10 @@ export default function Home() {
                   { q: "Може ли да се правят промени по време на ремонта?", a: "Да, промените са възможни. Ще обсъдим всички последици върху графика и бюджета преди да продължим. Вярваме в гъвкавостта, за да получите точно това, което искате." }
                 ].map((faq, idx) => (
                   <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 last:border-0">
-                    <AccordionTrigger className="text-white hover:text-primary hover:no-underline font-semibold text-left px-4">
+                    <AccordionTrigger className="text-white hover:text-primary hover:no-underline font-semibold text-left px-4 py-5 text-lg">
                       {faq.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-200 px-4 pb-4">
+                    <AccordionContent className="text-slate-400 px-4 pb-5 text-base leading-relaxed">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -282,57 +285,52 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        {/* Background Pattern - hidden on mobile to prevent overflow */}
-        <div className="hidden md:block absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="hidden md:block absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       </section>
 
-      {/* Contact Section */}
-      <section id="quote" className="py-20 md:py-28 bg-secondary/30 relative">
+      {/* Contact Section - Light Section */}
+      <section id="quote" className="py-24 md:py-32 bg-[#F8FAFC]">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-            <div className="space-y-8">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <div className="space-y-10">
               <div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Свържете се с нас</span>
-                <h2 className="text-3xl md:text-5xl font-bold font-display text-foreground mb-6">Започнете проекта си днес</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Свържете се с нас</span>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground mb-6">Започнете проекта си днес</h2>
+                <p className="text-[#64748B] text-lg leading-relaxed">
                   Готови ли сте да преобразите дома си? Свържете се с нас за безплатна консултация и оферта. 
-                  Екипът ни е готов да отговори на всички ваши въпроси и да помогне при планирането на перфектния ремонт.
-                  Моля, включете местоположението на обекта и кратко описание на необходимата работа.
+                  Екипът ни е готов да отговори на всички ваши въпроси.
                 </p>
               </div>
 
               <div className="grid gap-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
-                    <PhoneCall className="w-6 h-6" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
+                    <PhoneCall className="w-7 h-7" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Телефон</h4>
-                    <p className="text-muted-foreground mb-1">Пон–Пет от 9:00 до 18:00.</p>
-                    <a href="tel:+359897744774" className="text-lg font-bold hover:text-primary transition-colors">+359 89 7744774</a>
+                    <h4 className="font-bold text-primary-foreground text-lg">Телефон</h4>
+                    <p className="text-[#64748B] mb-1">Пон–Пет от 9:00 до 18:00</p>
+                    <a href="tel:+359897744774" className="text-xl font-bold text-primary-foreground hover:text-primary transition-colors">+359 89 7744774</a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
-                    <MapPin className="w-6 h-6" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
+                    <MapPin className="w-7 h-7" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Офис</h4>
-                    <p className="text-muted-foreground mb-1">Елате да се запознаем в офиса ни.</p>
-                    <p className="font-medium">Бизнес Парк София, Сграда 12, София 1766</p>
+                    <h4 className="font-bold text-primary-foreground text-lg">Офис</h4>
+                    <p className="text-[#64748B] mb-1">Елате да се запознаем в офиса ни</p>
+                    <p className="font-medium text-[#334155]">Бизнес Парк София, Сграда 12, София 1766</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
-                    <Hammer className="w-6 h-6" />
+                <div className="flex items-start gap-5">
+                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
+                    <Hammer className="w-7 h-7" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground text-lg">Оглед на място</h4>
-                    <p className="text-muted-foreground">
+                    <h4 className="font-bold text-primary-foreground text-lg">Оглед на място</h4>
+                    <p className="text-[#64748B]">
                       Предлагаме безплатни консултации на място за точна оценка на нуждите по вашия проект.
                     </p>
                   </div>
@@ -340,8 +338,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="hidden md:block absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+            <div>
               <ContactForm />
             </div>
           </div>

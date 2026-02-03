@@ -28,37 +28,43 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-card border border-border rounded-lg shadow-xl shadow-black/5 p-8 relative overflow-hidden">
-      {/* Decorative accent top bar */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
-
-      <h3 className="text-2xl font-bold font-display mb-6">Получете безплатна оферта</h3>
+    <div className="bg-white border border-[#E2E8F0] rounded-xl shadow-xl p-8">
+      <h3 className="text-2xl font-bold text-primary-foreground mb-6">Получете безплатна оферта</h3>
       
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">Име и фамилия</FormLabel>
+                <FormLabel className="text-sm font-medium text-[#64748B]">Име и фамилия</FormLabel>
                 <FormControl>
-                  <Input placeholder="Иван Иванов" className="bg-secondary/50 border-transparent focus:bg-background transition-all" {...field} />
+                  <Input 
+                    placeholder="Иван Иванов" 
+                    className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary focus:ring-primary/20 rounded-md h-12" 
+                    {...field} 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">Имейл адрес</FormLabel>
+                  <FormLabel className="text-sm font-medium text-[#64748B]">Имейл адрес</FormLabel>
                   <FormControl>
-                    <Input placeholder="ivan@example.com" type="email" className="bg-secondary/50 border-transparent focus:bg-background transition-all" {...field} />
+                    <Input 
+                      placeholder="ivan@example.com" 
+                      type="email" 
+                      className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary focus:ring-primary/20 rounded-md h-12" 
+                      {...field} 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -69,9 +75,14 @@ export function ContactForm() {
               name="location"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">Местоположение на обекта</FormLabel>
+                  <FormLabel className="text-sm font-medium text-[#64748B]">Местоположение</FormLabel>
                   <FormControl>
-                    <Input placeholder="напр. София, Център" value={field.value || ""} onChange={field.onChange} className="bg-secondary/50 border-transparent focus:bg-background transition-all" />
+                    <Input 
+                      placeholder="напр. София, Център" 
+                      value={field.value || ""} 
+                      onChange={field.onChange} 
+                      className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary focus:ring-primary/20 rounded-md h-12" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -84,11 +95,11 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">Детайли за проекта</FormLabel>
+                <FormLabel className="text-sm font-medium text-[#64748B]">Детайли за проекта</FormLabel>
                 <FormControl>
                   <Textarea 
                     placeholder="Разкажете ни за вашите ремонтни планове..." 
-                    className="min-h-[120px] bg-secondary/50 border-transparent focus:bg-background transition-all resize-none" 
+                    className="min-h-[120px] bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary focus:ring-primary/20 rounded-md resize-none" 
                     {...field} 
                   />
                 </FormControl>
@@ -99,7 +110,7 @@ export function ContactForm() {
 
           <Button 
             type="submit" 
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:translate-y-[-2px] transition-all"
+            className="w-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-12 rounded-md"
             disabled={mutation.isPending}
           >
             {mutation.isPending ? (
@@ -113,7 +124,7 @@ export function ContactForm() {
             )}
           </Button>
           
-          <p className="text-xs text-center text-muted-foreground mt-4">
+          <p className="text-xs text-center text-[#94A3B8] mt-4">
             С изпращането на тази форма се съгласявате с нашата <a href="#" className="underline hover:text-primary">политика за поверителност</a>.
           </p>
         </form>

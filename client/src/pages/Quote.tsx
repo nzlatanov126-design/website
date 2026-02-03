@@ -74,92 +74,86 @@ export default function Quote() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Hero */}
-        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-[#0F172A] overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="max-w-3xl"
             >
-              <span className="text-primary font-bold uppercase tracking-widest text-xs md:text-sm mb-2 md:mb-3 block">Безплатна оферта</span>
-              <h1 className="text-3xl md:text-6xl font-bold font-display mb-3 md:mb-6 text-white">Започнете проекта си днес</h1>
-              <p className="text-base md:text-xl text-gray-200">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа.</p>
+              <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Безплатна оферта</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Започнете проекта си днес</h1>
+              <p className="text-xl text-slate-400">Попълнете формата и ще получите детайлна оферта в рамките на 48 часа.</p>
             </motion.div>
           </div>
-          <div className="hidden md:block absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         </section>
 
         {/* Form Section */}
-        <section className="py-10 md:py-20 bg-secondary/30">
+        <section className="py-16 md:py-24 bg-[#F8FAFC]">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
-              {/* Left Column - Info - Hidden on mobile, form first */}
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+              {/* Left Column - Info */}
               <div className="hidden lg:block space-y-8">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">Започнете проекта си днес</h2>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    Готови ли сте да преобразите вашия дом? Свържете се с нас за безплатна консултация и оферта. 
-                    Екипът ни е готов да отговори на всички ваши въпроси и да помогне при планирането на перфектния ремонт.
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-primary-foreground mb-6">Свържете се с нас</h2>
+                  <p className="text-[#64748B] text-lg leading-relaxed">
+                    Готови ли сте да преобразите вашия дом? Екипът ни е готов да отговори на всички ваши въпроси.
                   </p>
                 </div>
 
                 <div className="grid gap-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
                       <Phone className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-lg">Телефон</h4>
-                      <p className="text-muted-foreground mb-1">Пон-Пет от 9:00 до 18:00</p>
-                      <a href="tel:+359897744774" className="text-xl font-bold hover:text-primary transition-colors">+359 89 7744774</a>
+                      <h4 className="font-bold text-primary-foreground text-lg">Телефон</h4>
+                      <p className="text-[#64748B] mb-1">Пон-Пет от 9:00 до 18:00</p>
+                      <a href="tel:+359897744774" className="text-xl font-bold text-primary-foreground hover:text-primary transition-colors">+359 89 7744774</a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
                       <MapPin className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-lg">Офис</h4>
-                      <p className="text-muted-foreground mb-1">Елате да се запознаем</p>
-                      <p className="font-medium">Бизнес Парк София, Сграда 12, София 1766</p>
+                      <h4 className="font-bold text-primary-foreground text-lg">Офис</h4>
+                      <p className="text-[#64748B] mb-1">Елате да се запознаем</p>
+                      <p className="font-medium text-[#334155]">Бизнес Парк София, Сграда 12, София 1766</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
                       <Clock className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-lg">Работно време</h4>
-                      <p className="text-muted-foreground mb-1">Понеделник - Петък</p>
-                      <p className="font-medium">09:00 - 18:00</p>
+                      <h4 className="font-bold text-primary-foreground text-lg">Работно време</h4>
+                      <p className="text-[#64748B] mb-1">Понеделник - Петък</p>
+                      <p className="font-medium text-[#334155]">09:00 - 18:00</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center shrink-0 text-primary">
+                  <div className="flex items-start gap-5">
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
                       <Hammer className="w-7 h-7" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground text-lg">Безплатен оглед</h4>
-                      <p className="text-muted-foreground">
-                        Предлагаме безплатни консултации на място за точна оценка на нуждите по вашия проект.
+                      <h4 className="font-bold text-primary-foreground text-lg">Безплатен оглед</h4>
+                      <p className="text-[#64748B]">
+                        Предлагаме безплатни консултации на място за точна оценка.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Right Column - Form - Shown first on mobile via order */}
-              <div className="relative order-first lg:order-last">
-                <div className="hidden md:block absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-                
-                <div className="bg-card border border-border rounded-lg shadow-xl shadow-black/5 p-6 md:p-8 relative overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/60" />
-
+              {/* Right Column - Form */}
+              <div className="order-first lg:order-last">
+                <div className="bg-white border border-[#E2E8F0] rounded-xl shadow-xl p-6 md:p-8">
                   {isSubmitted ? (
                     <motion.div 
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -169,9 +163,9 @@ export default function Quote() {
                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle2 className="w-10 h-10 text-green-600" />
                       </div>
-                      <h3 className="text-2xl font-bold font-display mb-4">Заявката е изпратена!</h3>
-                      <p className="text-muted-foreground mb-6">
-                        Благодарим ви за интереса! Ще се свържем с вас в рамките на 48 часа с детайлна оферта.
+                      <h3 className="text-2xl font-bold text-primary-foreground mb-4">Заявката е изпратена!</h3>
+                      <p className="text-[#64748B] mb-6">
+                        Благодарим ви за интереса! Ще се свържем с вас в рамките на 48 часа.
                       </p>
                       <Button 
                         onClick={() => {
@@ -179,29 +173,29 @@ export default function Quote() {
                           form.reset();
                         }}
                         variant="outline"
-                        className="rounded-full"
+                        className="rounded-md border-[#E2E8F0]"
                       >
                         Изпрати нова заявка
                       </Button>
                     </motion.div>
                   ) : (
                     <>
-                      <h3 className="text-2xl font-bold font-display mb-6">Получете безплатна оферта</h3>
+                      <h3 className="text-2xl font-bold text-primary-foreground mb-6">Получете безплатна оферта</h3>
                       
                       <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                           <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">
+                                <FormLabel className="text-sm font-medium text-[#64748B]">
                                   Име и фамилия <span className="text-red-500">*</span>
                                 </FormLabel>
                                 <FormControl>
                                   <Input 
                                     placeholder="Иван Иванов" 
-                                    className="bg-secondary/50 border-transparent focus:bg-background transition-all" 
+                                    className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary rounded-md h-12" 
                                     data-testid="input-name"
                                     {...field} 
                                   />
@@ -211,20 +205,20 @@ export default function Quote() {
                             )}
                           />
 
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <FormField
                               control={form.control}
                               name="email"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">
+                                  <FormLabel className="text-sm font-medium text-[#64748B]">
                                     Имейл адрес <span className="text-red-500">*</span>
                                   </FormLabel>
                                   <FormControl>
                                     <Input 
                                       placeholder="ivan@example.com" 
                                       type="email" 
-                                      className="bg-secondary/50 border-transparent focus:bg-background transition-all" 
+                                      className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary rounded-md h-12" 
                                       data-testid="input-email"
                                       {...field} 
                                     />
@@ -238,13 +232,13 @@ export default function Quote() {
                               name="location"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">
-                                    Местоположение на обекта <span className="text-red-500">*</span>
+                                  <FormLabel className="text-sm font-medium text-[#64748B]">
+                                    Местоположение <span className="text-red-500">*</span>
                                   </FormLabel>
                                   <FormControl>
                                     <Input 
                                       placeholder="напр. София, Център" 
-                                      className="bg-secondary/50 border-transparent focus:bg-background transition-all" 
+                                      className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary rounded-md h-12" 
                                       data-testid="input-location"
                                       {...field} 
                                     />
@@ -260,13 +254,13 @@ export default function Quote() {
                             name="service"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">
+                                <FormLabel className="text-sm font-medium text-[#64748B]">
                                   Услуга <span className="text-red-500">*</span>
                                 </FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                   <FormControl>
                                     <SelectTrigger 
-                                      className="bg-secondary/50 border-transparent focus:bg-background transition-all"
+                                      className="bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary rounded-md h-12"
                                       data-testid="select-service"
                                     >
                                       <SelectValue placeholder="Изберете услуга" />
@@ -294,13 +288,13 @@ export default function Quote() {
                             name="message"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="uppercase text-xs font-bold tracking-wider text-muted-foreground">
+                                <FormLabel className="text-sm font-medium text-[#64748B]">
                                   Детайли за проекта <span className="text-red-500">*</span>
                                 </FormLabel>
                                 <FormControl>
                                   <Textarea 
-                                    placeholder="Опишете какво бихте искали да направим - площ, специфични изисквания, срокове..." 
-                                    className="min-h-[120px] bg-secondary/50 border-transparent focus:bg-background transition-all resize-none" 
+                                    placeholder="Опишете какво бихте искали да направим..." 
+                                    className="min-h-[120px] bg-[#F8FAFC] border-[#E2E8F0] focus:border-primary rounded-md resize-none" 
                                     data-testid="textarea-message"
                                     {...field} 
                                   />
@@ -312,7 +306,7 @@ export default function Quote() {
 
                           <Button 
                             type="submit" 
-                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-widest h-12 shadow-lg shadow-primary/20 hover:shadow-xl hover:translate-y-[-2px] transition-all"
+                            className="w-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-12 rounded-md"
                             disabled={isSubmitting}
                             data-testid="button-submit"
                           >
@@ -327,8 +321,8 @@ export default function Quote() {
                             )}
                           </Button>
                           
-                          <p className="text-xs text-center text-muted-foreground mt-4">
-                            С изпращането на тази форма се съгласявате с нашата <a href="#" className="underline hover:text-primary">политика за поверителност</a>.
+                          <p className="text-xs text-center text-[#94A3B8] mt-4">
+                            С изпращането се съгласявате с нашата <a href="#" className="underline hover:text-primary">политика за поверителност</a>.
                           </p>
                         </form>
                       </Form>

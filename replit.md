@@ -74,8 +74,8 @@ Preferred communication style: Simple, everyday language.
 - PostCSS with Tailwind and Autoprefixer
 
 ### Fonts
-- Manrope (display/headings)
-- Outfit (body text)
+- Inter (display/headings and body text)
+- Clean, modern, professional typography
 - Loaded via Google Fonts
 
 ### Email Configuration
@@ -85,9 +85,17 @@ Preferred communication style: Simple, everyday language.
 - **Endpoint**: `POST /api/quote` - sends quote requests to info@gdcs.bg
 - **Note**: If Gmail App Password expires, regenerate at myaccount.google.com > Security > App passwords
 
-### Brand Colors (from logo)
-- **Navy Blue**: #2B4257 (headers, footer, text)
-- **Orange**: #F68B1F (CTA buttons, accents, highlights)
+### Premium Architectural Design Palette
+- **Deep Slate**: #0F172A (dark sections, footer, hero overlays)
+- **Amber Gold**: #F59E0B (CTA buttons, accents, highlights)
+- **Light Slate**: #F8FAFC (light section backgrounds)
+- **Slate Gray**: #334155 (secondary text)
+- **Muted Text**: #64748B / #94A3B8 (body text on light/dark)
+- **Border**: #E2E8F0 (light borders)
+
+### Typography
+- **Font**: Inter (headers and body text)
+- **Style**: Clean, modern, professional
 
 ### Contact Information
 - **Phone**: +359 89 7744774

@@ -74,7 +74,7 @@ export default function Blog() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative py-10 md:py-20 bg-accent text-accent-foreground overflow-hidden">
+        <section className="relative py-10 md:py-20 bg-[#0F172A] text-white overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -83,8 +83,8 @@ export default function Blog() {
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Блог</span>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-display mb-6 text-white">Полезни съвети и идеи</h1>
-              <p className="text-xl text-gray-200 mb-8">Открийте вдъхновяващи статии, практически съвети и последните тенденции в света на ремонтите и интериорния дизайн.</p>
-              <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
+              <p className="text-xl text-slate-400 mb-8">Открийте вдъхновяващи статии, практически съвети и последните тенденции в света на ремонтите и интериорния дизайн.</p>
+              <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>
               </Button>
             </motion.div>
@@ -114,7 +114,7 @@ export default function Blog() {
                   <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {blogPosts[0].date}</span>
                   <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {blogPosts[0].readTime}</span>
                 </div>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full">
+                <Button asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded-full">
                   <a href="#" className="flex items-center gap-2">Прочети повече <ArrowRight className="w-4 h-4" /></a>
                 </Button>
               </div>
@@ -167,14 +167,14 @@ export default function Blog() {
         <section className="py-20 bg-accent text-white">
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-white">Искате да получавате нови статии?</h2>
-            <p className="text-gray-200 text-lg mb-8">Абонирайте се за нашия бюлетин и получавайте най-новите съвети и идеи директно във вашата поща.</p>
+            <p className="text-slate-400 text-lg mb-8">Абонирайте се за нашия бюлетин и получавайте най-новите съвети и идеи директно във вашата поща.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
                 placeholder="Вашият имейл адрес"
                 className="flex-1 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-primary"
               />
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-full px-8">
+              <Button className="bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded-full px-8">
                 Абонирай се
               </Button>
             </div>

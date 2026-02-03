@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "wouter";
-import { Menu, X, Phone, Mail, Clock, MapPin, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -46,7 +46,7 @@ export function Navbar() {
       items: services
     },
     { 
-      name: "Апартаменти и къщи", 
+      name: "Проекти", 
       href: "/projects/bathroom-renovation", 
       hasDropdown: true,
       isOpen: housesOpen,
@@ -55,183 +55,178 @@ export function Navbar() {
     },
     { name: "Отзиви", href: "/testimonials" },
     { name: "За нас", href: "/about" },
-    { name: "Блог", href: "/blog" },
     { name: "Контакт", href: "#footer", isAnchor: true },
   ];
 
   return (
-    <>
-      {/* Top Info Bar */}
-      <div className="hidden md:block bg-accent text-accent-foreground py-2 text-xs font-medium tracking-wide border-b border-white/10">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <span className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-primary" /> София, България
-            </span>
-            <a href="mailto:info@gdcs.bg" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-3.5 h-3.5 text-primary" /> info@gdcs.bg
-            </a>
-            <span className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5 text-primary" /> Пон–Пет 09:00–18:00
-            </span>
-          </div>
-          <a href="tel:+359897744774" className="flex items-center gap-2 font-bold text-primary hover:text-primary/80 transition-colors">
-            <Phone className="w-3.5 h-3.5" /> +359 89 7744774
-          </a>
-        </div>
-      </div>
+    <nav 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled 
+          ? "bg-white/95 backdrop-blur-md shadow-lg py-3" 
+          : "bg-transparent py-5"
+      )}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link href="/" className="shrink-0 flex items-center" onClick={() => setIsOpen(false)} data-testid="link-logo">
+            <img 
+              src="/logo-gdcs-cropped.png" 
+              alt="GDCS" 
+              className={cn(
+                "h-8 md:h-10 w-auto object-contain transition-all",
+                scrolled ? "" : "brightness-0 invert"
+              )}
+            />
+          </Link>
 
-      {/* Main Navbar */}
-      <nav 
-        className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-300 border-b",
-          scrolled ? "bg-background/95 backdrop-blur-md shadow-md py-2 border-border" : "bg-white py-3 border-transparent"
-        )}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center gap-8">
-            {/* Logo */}
-            <Link href="/" className="shrink-0 flex items-center" onClick={() => setIsOpen(false)} data-testid="link-logo">
-              <img 
-                src="/logo-gdcs-cropped.png" 
-                alt="GDCS Construction & Finishing" 
-                className="h-7 md:h-9 w-auto object-contain"
-              />
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative group/item">
-                  {link.isAnchor ? (
-                    <a 
-                      href={link.href} 
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
-                      data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link 
-                      href={link.href} 
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors"
-                      data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link.name}
-                      {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />}
-                    </Link>
-                  )}
-                  
-                  {link.hasDropdown && (
-                    <div className="absolute top-full left-0 w-56 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
-                      <div className="bg-white border border-border shadow-xl rounded-lg py-2 overflow-hidden">
-                        {link.items?.map((item) => (
-                          <Link 
-                            key={item.name}
-                            href={item.href}
-                            className="block px-4 py-2.5 text-sm font-medium text-foreground hover:bg-secondary hover:text-primary transition-colors"
-                            data-testid={`nav-dropdown-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary scale-x-0 group-hover/item:scale-x-100 transition-transform origin-left" />
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <div className="hidden lg:block shrink-0">
-              <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider rounded-md shadow-lg shadow-primary/20 px-6">
-                <Link href="/quote" data-testid="nav-cta-quote">Поискай оферта</Link>
-              </Button>
-            </div>
-
-            {/* Mobile Menu Toggle */}
-            <button 
-              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <div 
-          className={cn(
-            "lg:hidden fixed inset-x-0 top-[72px] bg-background border-b border-border shadow-xl transition-all duration-300 overflow-y-auto",
-            isOpen ? "max-h-[calc(100vh-72px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="container px-4 py-6 flex flex-col gap-1">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <div key={link.name} className="flex flex-col">
-                <div className="flex items-center justify-between py-3 border-b border-border/50">
-                  {link.isAnchor ? (
-                    <a 
-                      href={link.href}
-                      className="text-base font-bold text-foreground hover:text-primary transition-colors"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link 
-                      href={link.href}
-                      className="text-base font-bold text-foreground hover:text-primary transition-colors"
-                      onClick={(e) => {
-                        if (link.hasDropdown) {
-                          e.preventDefault();
-                          link.toggle();
-                        } else {
-                          setIsOpen(false);
-                        }
-                      }}
-                    >
-                      <span className="flex items-center gap-2">
-                        {link.name}
-                        {link.hasDropdown && <ChevronDown className={cn("w-4 h-4 transition-transform", link.isOpen && "rotate-180")} />}
-                      </span>
-                    </Link>
-                  )}
-                </div>
+              <div key={link.name} className="relative group/item">
+                {link.isAnchor ? (
+                  <a 
+                    href={link.href} 
+                    className={cn(
+                      "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md",
+                      scrolled ? "text-[#334155] hover:text-primary" : "text-white/90 hover:text-white"
+                    )}
+                    data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link 
+                    href={link.href} 
+                    className={cn(
+                      "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-md",
+                      scrolled ? "text-[#334155] hover:text-primary" : "text-white/90 hover:text-white"
+                    )}
+                    data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {link.name}
+                    {link.hasDropdown && <ChevronDown className="w-4 h-4 group-hover/item:rotate-180 transition-transform" />}
+                  </Link>
+                )}
+                
                 {link.hasDropdown && (
-                  <div className={cn("pl-4 flex flex-col gap-1 py-2 bg-secondary/50 rounded-md my-1 transition-all overflow-hidden", link.isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 py-0 my-0")}>
-                    {link.items?.map((item) => (
-                      <Link 
-                        key={item.name}
-                        href={item.href}
-                        className="text-sm font-medium text-muted-foreground py-2 px-2 hover:text-primary hover:bg-white/50 rounded transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                  <div className="absolute top-full left-0 w-56 pt-2 opacity-0 translate-y-2 invisible group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:visible transition-all duration-200 z-50">
+                    <div className="bg-white border border-[#E2E8F0] shadow-xl rounded-lg py-2 overflow-hidden">
+                      {link.items?.map((item) => (
+                        <Link 
+                          key={item.name}
+                          href={item.href}
+                          className="block px-4 py-2.5 text-sm font-medium text-[#334155] hover:bg-[#F8FAFC] hover:text-primary transition-colors"
+                          data-testid={`nav-dropdown-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
             ))}
-            <Button asChild className="mt-4 w-full bg-primary font-bold uppercase rounded-md h-12" onClick={() => setIsOpen(false)}>
-              <Link href="/quote">Поискай оферта</Link>
+          </div>
+
+          {/* CTA Button & Phone */}
+          <div className="hidden lg:flex items-center gap-6">
+            <a 
+              href="tel:+359897744774" 
+              className={cn(
+                "flex items-center gap-2 text-sm font-medium transition-colors",
+                scrolled ? "text-[#334155] hover:text-primary" : "text-white/90 hover:text-white"
+              )}
+            >
+              <Phone className="w-4 h-4" />
+              +359 89 7744774
+            </a>
+            <Button asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded-md px-6 h-10">
+              <Link href="/quote" data-testid="nav-cta-quote">Поискай оферта</Link>
             </Button>
-            
-            <div className="mt-6 pt-6 border-t border-border flex flex-col gap-3 text-sm text-muted-foreground">
-              <a href="tel:+359897744774" className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Phone className="w-4 h-4 text-primary" /> +359 89 7744774
-              </a>
-              <a href="mailto:info@gdcs.bg" className="flex items-center gap-3 hover:text-primary transition-colors">
-                <Mail className="w-4 h-4 text-primary" /> info@gdcs.bg
-              </a>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className={cn(
+              "lg:hidden p-2 transition-colors",
+              scrolled ? "text-primary-foreground" : "text-white"
+            )}
+            onClick={() => setIsOpen(!isOpen)}
+            data-testid="button-mobile-menu"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div 
+        className={cn(
+          "lg:hidden fixed inset-x-0 top-[60px] bg-white border-b border-[#E2E8F0] shadow-xl transition-all duration-300 overflow-y-auto",
+          isOpen ? "max-h-[calc(100vh-60px)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        )}
+      >
+        <div className="container px-4 py-6 flex flex-col gap-2">
+          {navLinks.map((link) => (
+            <div key={link.name} className="flex flex-col">
+              <div className="flex items-center justify-between py-3 border-b border-[#E2E8F0]">
+                {link.isAnchor ? (
+                  <a 
+                    href={link.href}
+                    className="text-base font-semibold text-primary-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link 
+                    href={link.href}
+                    className="text-base font-semibold text-primary-foreground hover:text-primary transition-colors"
+                    onClick={(e) => {
+                      if (link.hasDropdown) {
+                        e.preventDefault();
+                        link.toggle();
+                      } else {
+                        setIsOpen(false);
+                      }
+                    }}
+                  >
+                    <span className="flex items-center gap-2">
+                      {link.name}
+                      {link.hasDropdown && <ChevronDown className={cn("w-4 h-4 transition-transform", link.isOpen && "rotate-180")} />}
+                    </span>
+                  </Link>
+                )}
+              </div>
+              {link.hasDropdown && (
+                <div className={cn("pl-4 flex flex-col gap-1 py-2 bg-[#F8FAFC] rounded-lg my-1 transition-all overflow-hidden", link.isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 py-0 my-0")}>
+                  {link.items?.map((item) => (
+                    <Link 
+                      key={item.name}
+                      href={item.href}
+                      className="text-sm font-medium text-[#64748B] py-2 px-3 hover:text-primary hover:bg-white rounded transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
+          ))}
+          <Button asChild className="mt-4 w-full bg-primary text-primary-foreground font-bold uppercase rounded-md h-12" onClick={() => setIsOpen(false)}>
+            <Link href="/quote">Поискай оферта</Link>
+          </Button>
+          
+          <div className="mt-6 pt-6 border-t border-[#E2E8F0] flex flex-col gap-3 text-sm text-[#64748B]">
+            <a href="tel:+359897744774" className="flex items-center gap-3 hover:text-primary transition-colors font-medium">
+              <Phone className="w-5 h-5 text-primary" /> +359 89 7744774
+            </a>
           </div>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }
