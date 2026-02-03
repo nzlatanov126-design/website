@@ -68,18 +68,6 @@ export default function Painting() {
           </div>
         </section>
 
-        <section className="py-20 bg-secondary/30 border-y border-border">
-          <div className="container mx-auto px-4 text-center max-w-2xl">
-            <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
-            <p className="text-muted-foreground mb-8">
-              Нашите цени са прозрачни и конкурентни. Крайната оферта зависи от състоянието на повърхностите и избора на боя, което изисква оглед на място.
-            </p>
-            <div className="p-6 bg-white border border-border rounded-2xl">
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цени от</p>
-              <p className="text-4xl font-black text-foreground font-display">15 лв. / м²</p>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>

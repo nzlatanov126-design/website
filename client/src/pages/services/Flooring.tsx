@@ -54,14 +54,6 @@ export default function Flooring() {
           </div>
         </section>
 
-        <section className="py-20 bg-secondary/30 border-y border-border text-center max-w-2xl mx-auto container rounded-2xl mb-20 mt-10 p-10">
-          <h2 className="text-3xl font-bold font-display mb-6">Ориентировъчни цени</h2>
-          <p className="text-muted-foreground mb-8">Цената зависи от материала и състоянието на основата.</p>
-          <div className="p-6 bg-white border border-border rounded-2xl inline-block px-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Цени от</p>
-            <p className="text-4xl font-black text-foreground font-display">10 лв. / м²</p>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
