@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ContactForm } from "@/components/ContactForm";
 import { ServiceCard } from "@/components/ServiceCard";
 import { FeatureCard } from "@/components/FeatureCard";
 import { HeroSlider } from "@/components/HeroSlider";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucket, Wrench, Bath, Plug, Quote, ArrowRight, MapPin } from "lucide-react";
+import { Check, ShieldCheck, Ruler, CalendarClock, PhoneCall, Hammer, PaintBucket, Wrench, Bath, Plug, Quote, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -40,7 +39,7 @@ export default function Home() {
             
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button size="lg" asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-10 text-base rounded-md">
-                <a href="#quote">Поискай оферта</a>
+                <a href="/quote">Поискай оферта</a>
               </Button>
               <Button size="lg" variant="outline" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white uppercase tracking-wider h-14 px-10 text-base font-semibold rounded-md backdrop-blur-sm">
                 <a href="#services">Нашите услуги</a>
@@ -261,7 +260,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8">Често задавани въпроси</h2>
               <p className="text-slate-400 text-lg mb-10 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
               <Button asChild className="bg-primary text-primary-foreground font-bold uppercase tracking-wider rounded-md h-12 px-8">
-                <a href="#quote">Задайте въпрос</a>
+                <a href="/quote">Задайте въпрос</a>
               </Button>
             </div>
 
@@ -283,64 +282,6 @@ export default function Home() {
                   </AccordionItem>
                 ))}
               </Accordion>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section - Light Section */}
-      <section id="quote" className="py-24 md:py-32 bg-[#F8FAFC]">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div className="space-y-10">
-              <div>
-                <span className="text-primary font-semibold uppercase tracking-[0.2em] text-sm mb-4 block">Свържете се с нас</span>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground mb-6">Започнете проекта си днес</h2>
-                <p className="text-[#64748B] text-lg leading-relaxed">
-                  Готови ли сте да преобразите дома си? Свържете се с нас за безплатна консултация и оферта. 
-                  Екипът ни е готов да отговори на всички ваши въпроси.
-                </p>
-              </div>
-
-              <div className="grid gap-6">
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
-                    <PhoneCall className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-primary-foreground text-lg">Телефон</h4>
-                    <p className="text-[#64748B] mb-1">Пон–Пет от 9:00 до 18:00</p>
-                    <a href="tel:+359897744774" className="text-xl font-bold text-primary-foreground hover:text-primary transition-colors">+359 89 7744774</a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
-                    <MapPin className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-primary-foreground text-lg">Офис</h4>
-                    <p className="text-[#64748B] mb-1">Елате да се запознаем в офиса ни</p>
-                    <p className="font-medium text-[#334155]">Бизнес Парк София, Сграда 12, София 1766</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center shrink-0 text-primary border border-[#E2E8F0]">
-                    <Hammer className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-primary-foreground text-lg">Оглед на място</h4>
-                    <p className="text-[#64748B]">
-                      Предлагаме безплатни консултации на място за точна оценка на нуждите по вашия проект.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <ContactForm />
             </div>
           </div>
         </div>

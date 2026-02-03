@@ -15,7 +15,7 @@ export default function Tiles() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Облицовка с плочки</h1>
               <p className="text-xl text-slate-400 mb-8">Професионален монтаж на керамични, порцеланови и каменни плочки за подове и стени.</p>
               <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Поискай оферта</a>
+                <a href="/quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>

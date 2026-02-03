@@ -15,7 +15,7 @@ export default function Drywall() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Гипсокартон</h1>
               <p className="text-xl text-slate-400 mb-8">Преградни стени, окачени тавани и конструкции от гипсокартон за преоформяне на пространството ви.</p>
               <Button size="lg" asChild className="rounded-full bg-primary text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
-                <a href="/#quote">Поискай оферта</a>
+                <a href="/quote">Поискай оферта</a>
               </Button>
             </motion.div>
           </div>
