@@ -1,0 +1,54 @@
+Ensure the entire website is fully responsive and does NOT break when resizing the browser window (fullscreen → small window) or when opened on mobile/tablet.
+
+REQUIREMENTS
+1) Responsive Layout
+- Use Flexbox/Grid for all layouts (no fixed pixel layouts for main sections).
+- All sections must adapt smoothly from large desktop to small screens.
+- No horizontal scrolling at any screen size.
+- No content overlapping, clipping, or elements going off-screen.
+
+2) Breakpoints
+Implement and verify responsive behavior at these widths:
+- 1440px (desktop)
+- 1024px (laptop/tablet landscape)
+- 768px (tablet)
+- 480px (mobile)
+- 375px (small mobile)
+
+3) Navbar Responsiveness
+- Desktop: normal horizontal navbar.
+- Tablet/mobile: switch to hamburger menu.
+- Menu must open/close properly and not overflow.
+- Logo stays correctly sized and aligned (no whitespace or stretching).
+- All buttons remain clickable and readable.
+
+4) Images & Media
+- All images must be responsive: max-width: 100%, height: auto.
+- Use object-fit (cover/contain) where appropriate.
+- No image should cause layout overflow or push content outside containers.
+
+5) Typography & Spacing
+- Use responsive font sizes (rem/clamp) so headings don’t overflow.
+- Ensure consistent padding/margins that scale down on mobile.
+- Buttons must remain large enough to tap on mobile.
+
+6) Forms (Quote / Footer Contact)
+- Inputs must fit on small screens.
+- Form should stack vertically on mobile.
+- No cut-off fields or broken alignment.
+
+7) Quality Check (must do)
+- Add or run a quick responsive test by checking these widths in the browser.
+- Fix any issues found: overflow-x, misalignment, wrapping, spacing, menu, images.
+
+ACCEPTANCE CRITERIA
+- Resizing the window from fullscreen to a small width does not break any layout.
+- On mobile, all sections stack cleanly and remain readable.
+- No horizontal scroll on any page.
+- Navbar + hamburger works perfectly on mobile.
+- No console errors.
+
+After implementing, output:
+- What was changed to improve responsiveness
+- Which files were modified
+- A short checklist of how to test responsiveness (steps + widths)

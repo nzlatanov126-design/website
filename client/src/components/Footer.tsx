@@ -106,8 +106,8 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-300">
-          <p>© 2026 GDCS Construction & Finishing. Всички права запазени.</p>
-          <div className="flex gap-6">
+          <p className="text-center md:text-left">© 2026 GDCS Construction & Finishing. Всички права запазени.</p>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="#" className="hover:text-white transition-colors">Политика за поверителност</a>
             <a href="#" className="hover:text-white transition-colors">Условия за ползване</a>
             <a href="#" className="hover:text-white transition-colors">Карта на сайта</a>
