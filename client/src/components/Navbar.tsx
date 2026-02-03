@@ -110,6 +110,14 @@ export function Navbar() {
                     >
                       {link.name}
                     </a>
+                  ) : link.hasDropdown ? (
+                    <span 
+                      className="flex items-center gap-1 px-3 py-2 text-sm font-semibold uppercase tracking-wide text-foreground hover:text-primary transition-colors cursor-pointer"
+                      data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {link.name}
+                      <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />
+                    </span>
                   ) : (
                     <Link 
                       href={link.href} 
@@ -117,7 +125,6 @@ export function Navbar() {
                       data-testid={`nav-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}
-                      {link.hasDropdown && <ChevronDown className="w-3 h-3 group-hover/item:rotate-180 transition-transform" />}
                     </Link>
                   )}
                   
@@ -180,23 +187,22 @@ export function Navbar() {
                     >
                       {link.name}
                     </a>
+                  ) : link.hasDropdown ? (
+                    <button
+                      type="button"
+                      className="text-base font-bold text-foreground hover:text-primary transition-colors flex items-center gap-2"
+                      onClick={() => link.toggle()}
+                    >
+                      {link.name}
+                      <ChevronDown className={cn("w-4 h-4 transition-transform", link.isOpen && "rotate-180")} />
+                    </button>
                   ) : (
                     <Link 
                       href={link.href}
                       className="text-base font-bold text-foreground hover:text-primary transition-colors"
-                      onClick={(e) => {
-                        if (link.hasDropdown) {
-                          e.preventDefault();
-                          link.toggle();
-                        } else {
-                          setIsOpen(false);
-                        }
-                      }}
+                      onClick={() => setIsOpen(false)}
                     >
-                      <span className="flex items-center gap-2">
-                        {link.name}
-                        {link.hasDropdown && <ChevronDown className={cn("w-4 h-4 transition-transform", link.isOpen && "rotate-180")} />}
-                      </span>
+                      {link.name}
                     </Link>
                   )}
                 </div>
