@@ -17,7 +17,7 @@ export default function Painting() {
               className="max-w-3xl"
             >
               <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Професионално бояджийство</h1>
-              <p className="text-xl text-gray-400 mb-8">Безупречна обработка на стени и професионално боядисване за свеж, модерен вид на вашия дом или офис.</p>
+              <p className="text-xl text-gray-200 mb-8">Безупречна обработка на стени и професионално боядисване за свеж, модерен вид на вашия дом или офис.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <a href="/#quote">Поискай оферта</a>
               </Button>

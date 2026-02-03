@@ -83,7 +83,7 @@ export default function Blog() {
             >
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Блог</span>
               <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Полезни съвети и идеи</h1>
-              <p className="text-xl text-gray-400 mb-8">Открийте вдъхновяващи статии, практически съвети и последните тенденции в света на ремонтите и интериорния дизайн.</p>
+              <p className="text-xl text-gray-200 mb-8">Открийте вдъхновяващи статии, практически съвети и последните тенденции в света на ремонтите и интериорния дизайн.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <Link href="/quote">Поискай оферта</Link>
               </Button>
@@ -167,7 +167,7 @@ export default function Blog() {
         <section className="py-20 bg-accent text-white">
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Искате да получавате нови статии?</h2>
-            <p className="text-gray-400 text-lg mb-8">Абонирайте се за нашия бюлетин и получавайте най-новите съвети и идеи директно във вашата поща.</p>
+            <p className="text-gray-200 text-lg mb-8">Абонирайте се за нашия бюлетин и получавайте най-новите съвети и идеи директно във вашата поща.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 

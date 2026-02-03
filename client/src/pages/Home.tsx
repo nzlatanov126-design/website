@@ -255,7 +255,7 @@ export default function Home() {
             <div>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">ЧЗВ</span>
               <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">Често задавани въпроси</h2>
-              <p className="text-gray-400 text-lg mb-8 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
+              <p className="text-gray-200 text-lg mb-8 max-w-md">Всичко, което трябва да знаете за нашия ремонтен процес, ценообразуване и гаранции.</p>
               <Button asChild className="bg-white text-accent hover:bg-gray-200 font-bold uppercase tracking-wider">
                 <a href="#quote">Задайте въпрос</a>
               </Button>
@@ -273,7 +273,7 @@ export default function Home() {
                     <AccordionTrigger className="text-white hover:text-primary hover:no-underline font-semibold text-left px-4">
                       {faq.q}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-400 px-4 pb-4">
+                    <AccordionContent className="text-gray-200 px-4 pb-4">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>

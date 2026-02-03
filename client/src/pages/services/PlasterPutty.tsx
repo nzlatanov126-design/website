@@ -13,7 +13,7 @@ export default function PlasterPutty() {
           <div className="container mx-auto px-4 relative z-10">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
               <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">Мазилка и шпакловка</h1>
-              <p className="text-xl text-gray-400 mb-8">Експертно изглаждане и мазилки за идеално равна повърхност, готова за всякакво покритие.</p>
+              <p className="text-xl text-gray-200 mb-8">Експертно изглаждане и мазилки за идеално равна повърхност, готова за всякакво покритие.</p>
               <Button size="lg" asChild className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold uppercase tracking-wider h-14 px-8">
                 <a href="/#quote">Поискай оферта</a>
               </Button>
